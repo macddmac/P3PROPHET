@@ -1,0 +1,103 @@
+<!doctype html>
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+		html {
+			scroll-behavior: smooth;
+		}
+
+		.navbar-collapse.collapse.in {
+            display: block!important;
+        }
+
+		#hero-header {
+			background-image: url("https://www.nationalgeographic.com/content/dam/magazine/rights-exempt/2019/10/extinction/south-china-tiger.adapt.1900.1.jpg");
+			height: 100vh;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: relative;
+		}
+
+		.hero-text {
+			text-align: center;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: white;
+		}
+
+		.navbar-custom {
+			background-color: lightgreen;
+		}
+		/* Modify brand and text color */
+
+		.navbar-custom .navbar-brand,
+		.navbar-custom .navbar-text {
+			color: #EAE2B7;
+		}
+
+    </style>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body style="background-color:#090809;">
+<!-- Navigation Bar from bootstrap -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">{{title}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/testimonial">About Us</a>
+            <a class="nav-link" href="/index">Shop</a>
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/database">Database</a>
+            <a class="nav-link" href="/api">API</a>
+            <a class="nav-link" href="/customerservice">Customer Service</a>
+            <a class="nav-link" href="/checkout">Checkout</a>
+            <a class="nav-link" href="/coupon">Coupon</a>
+            <a class="nav-link" href="/logout">Logout</a>
+        </div>
+    </div>
+</nav>
+
+
+<div>
+    {% block title %}
+    {% endblock %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+
+    {% for message in messages %}
+    <span style = "color: white">{{ message }}</span>
+    {% endfor %}
+
+    {% endif %}
+    {% endwith %}
+    {% block header %}
+    {% endblock %}
+    {% block projectplan %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+
+
+</div>
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

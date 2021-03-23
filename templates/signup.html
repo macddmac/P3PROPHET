@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="clearblock" style="color:white ">
+    <form method="post" style="display:inline-grid; width:70%" novalidate>
+        {{ form.hidden_tag() }}
+        <span>{{ form.username.label }}:</span> {{ form.username(size=64) }}
+        <span>{{ form.firstname.label }}:</span> {{ form.firstname(size=64) }}
+        <span>{{ form.lastname.label }}:</span> {{ form.lastname(size=64) }}
+        <span>{{ form.password.label }}:</span> {{ form.password(size=64) }}
+        <span>{{ form.passwordconfirm.label }}:</span> {{ form.passwordconfirm(size=64) }}
+        <span>{{ form.email.label }}:</span> {{ form.email(size=120) }}
+         {{ form.submit() }}
+    </form>
+</div>
+
+{% endblock %}

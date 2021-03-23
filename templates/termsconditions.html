@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>{{name}} | Project Plan </title>
+{% endblock %}
+
+
+<!-- Styling for tiger background with font colors  -->
+{% block title %}
+<div class="module">
+    <div style="color: white;text-align:center;
+  background: repeating-linear-gradient(
+    45deg,
+    #de8e16,
+    #de8e16 10px,
+    #030303 10px,
+    #030303 20px
+  );">
+        <h1>P4 Tigers Terms and Conditions</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block projectplan %}
+<div id="docs" class="screen">
+
+    <div class="row justify-content-center">
+        <div class="col-10" style="text-align: center; color: white;">
+            <h2>Terms and Conditions</h2>
+        </div>
+    </div>
+
+    <div class="Documents">
+        <div class="row justify-content-center">
+
+            <div class="col-4">
+                <a href="https://docs.google.com/document/d/14Y-MpJpwBesen2tVZDjJsDvczZkZg5KTOstW1anHCtA/edit?usp=sharing"></a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center" style="margin-top: 2vw;">
+            <div class="col-8" style="background-color:white;">
+                <iframe frameborder="0" width="100%" height="500px" src="https://docs.google.com/document/d/14Y-MpJpwBesen2tVZDjJsDvczZkZg5KTOstW1anHCtA/edit?usp=sharing"></iframe>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+{% endblock %}

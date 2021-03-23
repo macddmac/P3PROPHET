@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="clearblock" style="color:white ">
+    <form method="post" style="display:inline-grid; width:70%">
+        <h1 class="title"><strong>Welcome to Customer Service! What Would You Like to Do?</strong></h1>
+        <p class="tunesSub">1: Get in contact with a representative</p>
+        <p class="response1">2: Report a missing package</p>
+        <p class="response1">3: Read our terms and conditions</p>
+        <p class="response1">4: See Something Cool!</p>
+        <label for="response">Response:</label>
+        <input type="text" id="response" name="response" required placeholder="Your response:" autofocus>
+    </form>
+</div>
+
+{% endblock %}

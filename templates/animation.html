@@ -1,0 +1,1982 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>{{name}} | Animation </title>
+{% endblock %}
+
+{% block title %}
+<head>
+    <style>
+        /*! Author: Gregory Spiker */
+
+    #hey {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+    }
+
+    body {
+      background: #202020;
+    }
+
+    @-webkit-keyframes scale {
+      0% {
+        -webkit-transform: scale(0) translate(-50%, -50%);
+                transform: scale(0) translate(-50%, -50%);
+      }
+      100% {
+        -webkit-transform: scale(1) translate(-50%, -50%);
+                transform: scale(1) translate(-50%, -50%);
+      }
+    }
+
+    @keyframes scale {
+      0% {
+        -webkit-transform: scale(0) translate(-50%, -50%);
+                transform: scale(0) translate(-50%, -50%);
+      }
+      100% {
+        -webkit-transform: scale(1) translate(-50%, -50%);
+                transform: scale(1) translate(-50%, -50%);
+      }
+    }
+    @-webkit-keyframes poly {
+      0% {
+        -webkit-transform: scale(0) rotateY(540deg);
+                transform: scale(0) rotateY(540deg);
+      }
+    }
+    @keyframes poly {
+      0% {
+        -webkit-transform: scale(0) rotateY(540deg);
+                transform: scale(0) rotateY(540deg);
+      }
+    }
+    @-webkit-keyframes poly2 {
+      0% {
+        -webkit-transform: scale(0) rotateX(360deg);
+                transform: scale(0) rotateX(360deg);
+      }
+    }
+    @keyframes poly2 {
+      0% {
+        -webkit-transform: scale(0) rotateX(360deg);
+                transform: scale(0) rotateX(360deg);
+      }
+    }
+    .tiger {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 33.75em;
+      height: 34.3125em;
+      margin: auto;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      -webkit-transform-origin: 0 0;
+              transform-origin: 0 0;
+      -webkit-animation: scale 2.25s ease-in-out;
+              animation: scale 2.25s ease-in-out;
+      -webkit-perspective: 600px;
+              perspective: 600px;
+      font-size: 2.2857142857vmin;
+    }
+    .tiger, .tiger * {
+      -webkit-transform-style: preserve3d;
+              transform-style: preserve3d;
+    }
+    .tiger .half {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+    }
+    .tiger .half:nth-child(1) {
+      right: calc(50% - 1px);
+    }
+    .tiger .half:nth-child(2) {
+      left: calc(50% - 1px);
+      -webkit-transform: scaleX(-1);
+              transform: scaleX(-1);
+    }
+    .tiger .poly {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-animation: poly 2s linear;
+              animation: poly 2s linear;
+      -webkit-transform-origin: 100% 50%;
+              transform-origin: 100% 50%;
+    }
+    .tiger .poly:nth-child(even) {
+      -webkit-animation-name: poly2;
+              animation-name: poly2;
+    }
+    .tiger .poly:nth-child(1) {
+      background: #C16B46;
+      -webkit-clip-path: polygon(100% 73.871%, 95.578% 73.871%, 87.829% 71.583%, 85% 72.727%, 94.315% 76.685%, 94.598% 78.872%, 100% 79.511%);
+              clip-path: polygon(100% 73.871%, 95.578% 73.871%, 87.829% 71.583%, 85% 72.727%, 94.315% 76.685%, 94.598% 78.872%, 100% 79.511%);
+      -webkit-transform-origin: 100% 76.685%;
+              transform-origin: 100% 76.685%;
+    }
+    .tiger .poly:nth-child(2) {
+      background: #48302C;
+      -webkit-clip-path: polygon(85% 72.727%, 80.572% 69.792%, 80.572% 71.977%, 87.952% 76.44%, 90.535% 76.44%, 93.026% 78.626%, 98.147% 80.309%, 97.655% 82.65%, 83.247% 84.227%, 100% 83.544%, 100% 79.511%, 94.279% 78.799%, 94.315% 76.685%);
+              clip-path: polygon(85% 72.727%, 80.572% 69.792%, 80.572% 71.977%, 87.952% 76.44%, 90.535% 76.44%, 93.026% 78.626%, 98.147% 80.309%, 97.655% 82.65%, 83.247% 84.227%, 100% 83.544%, 100% 79.511%, 94.279% 78.799%, 94.315% 76.685%);
+      -webkit-transform-origin: 85% 78.626%;
+              transform-origin: 85% 78.626%;
+    }
+    .tiger .poly:nth-child(3) {
+      background: #48302C;
+      -webkit-clip-path: polygon(100% 9.237%, 89.884% 6.54%, 80.326% 9.237%);
+              clip-path: polygon(100% 9.237%, 89.884% 6.54%, 80.326% 9.237%);
+      -webkit-transform-origin: 89.884% 6.54%;
+              transform-origin: 89.884% 6.54%;
+    }
+    .tiger .poly:nth-child(4) {
+      background: #48302C;
+      -webkit-clip-path: polygon(93.856% 22.22%, 82.702% 25.973%, 66.796% 23.799%);
+              clip-path: polygon(93.856% 22.22%, 82.702% 25.973%, 66.796% 23.799%);
+      -webkit-transform-origin: 82.702% 25.973%;
+              transform-origin: 82.702% 25.973%;
+    }
+    .tiger .poly:nth-child(5) {
+      background: #48302C;
+      -webkit-clip-path: polygon(100% 11.716%, 69.093% 13.69%, 89.05% 10.337%);
+              clip-path: polygon(100% 11.716%, 69.093% 13.69%, 89.05% 10.337%);
+      -webkit-transform-origin: 69.093% 13.69%;
+              transform-origin: 69.093% 13.69%;
+    }
+    .tiger .poly:nth-child(6) {
+      background: #48302C;
+      -webkit-clip-path: polygon(93.856% 22.22%, 100% 17.666%, 100% 23.843%);
+              clip-path: polygon(93.856% 22.22%, 100% 17.666%, 100% 23.843%);
+      -webkit-transform-origin: 100% 17.666%;
+              transform-origin: 100% 17.666%;
+    }
+    .tiger .poly:nth-child(7) {
+      background: #48302C;
+      -webkit-clip-path: polygon(66.796% 23.799%, 58.524% 34.363%, 48.893% 32.092%);
+              clip-path: polygon(66.796% 23.799%, 58.524% 34.363%, 48.893% 32.092%);
+      -webkit-transform-origin: 58.524% 34.363%;
+              transform-origin: 58.524% 34.363%;
+    }
+    .tiger .poly:nth-child(8) {
+      background: #48302C;
+      -webkit-clip-path: polygon(48.783% 22.767%, 38.885% 20.116%, 37.794% 25.415%);
+              clip-path: polygon(48.783% 22.767%, 38.885% 20.116%, 37.794% 25.415%);
+      -webkit-transform-origin: 38.885% 20.116%;
+              transform-origin: 38.885% 20.116%;
+    }
+    .tiger .poly:nth-child(9) {
+      background: #48302C;
+      -webkit-clip-path: polygon(38.885% 20.116%, 38.885% 12.156%, 25.591% 9.53%);
+              clip-path: polygon(38.885% 20.116%, 38.885% 12.156%, 25.591% 9.53%);
+      -webkit-transform-origin: 38.885% 12.156%;
+              transform-origin: 38.885% 12.156%;
+    }
+    .tiger .poly:nth-child(10) {
+      background: #48302C;
+      -webkit-clip-path: polygon(58.524% 34.363%, 58.524% 41.103%, 50.068% 41.103%);
+              clip-path: polygon(58.524% 34.363%, 58.524% 41.103%, 50.068% 41.103%);
+      -webkit-transform-origin: 58.524% 41.103%;
+              transform-origin: 58.524% 41.103%;
+    }
+    .tiger .poly:nth-child(11) {
+      background: #48302C;
+      -webkit-clip-path: polygon(59.121% 45.76%, 50.068% 48.692%, 50.068% 44.697%);
+              clip-path: polygon(59.121% 45.76%, 50.068% 48.692%, 50.068% 44.697%);
+      -webkit-transform-origin: 50.068% 48.692%;
+              transform-origin: 50.068% 48.692%;
+    }
+    .tiger .poly:nth-child(12) {
+      background: #48302C;
+      -webkit-clip-path: polygon(44.902% 41.103%, 42.073% 35.583%, 36.657% 44.802%);
+              clip-path: polygon(44.902% 41.103%, 42.073% 35.583%, 36.657% 44.802%);
+      -webkit-transform-origin: 42.073% 35.583%;
+              transform-origin: 42.073% 35.583%;
+    }
+    .tiger .poly:nth-child(13) {
+      background: #48302C;
+      -webkit-clip-path: polygon(31.898% 36.977%, 31.898% 43.481%, 23.933% 44.233%);
+              clip-path: polygon(31.898% 36.977%, 31.898% 43.481%, 23.933% 44.233%);
+      -webkit-transform-origin: 31.898% 43.481%;
+              transform-origin: 31.898% 43.481%;
+    }
+    .tiger .poly:nth-child(14) {
+      background: #48302C;
+      -webkit-clip-path: polygon(62.614% 52.517%, 54.777% 50.913%, 57.005% 55.373%);
+              clip-path: polygon(62.614% 52.517%, 54.777% 50.913%, 57.005% 55.373%);
+      -webkit-transform-origin: 54.777% 50.913%;
+              transform-origin: 54.777% 50.913%;
+    }
+    .tiger .poly:nth-child(15) {
+      background: #48302C;
+      -webkit-clip-path: polygon(37.891% 53.142%, 38.383% 61.973%, 50.929% 64.782%);
+              clip-path: polygon(37.891% 53.142%, 38.383% 61.973%, 50.929% 64.782%);
+      -webkit-transform-origin: 38.383% 61.973%;
+              transform-origin: 38.383% 61.973%;
+    }
+    .tiger .poly:nth-child(16) {
+      background: #48302C;
+      -webkit-clip-path: polygon(27.54% 59.545%, 38.998% 65.996%, 31.898% 76.561%);
+              clip-path: polygon(27.54% 59.545%, 38.998% 65.996%, 31.898% 76.561%);
+      -webkit-transform-origin: 38.998% 65.996%;
+              transform-origin: 38.998% 65.996%;
+    }
+    .tiger .poly:nth-child(17) {
+      background: #48302C;
+      -webkit-clip-path: polygon(83.247% 84.227%, 68.395% 83.604%, 74.176% 87.564%);
+              clip-path: polygon(83.247% 84.227%, 68.395% 83.604%, 74.176% 87.564%);
+      -webkit-transform-origin: 68.395% 83.604%;
+              transform-origin: 68.395% 83.604%;
+    }
+    .tiger .poly:nth-child(18) {
+      background: #60410F;
+      -webkit-clip-path: polygon(100% 9.237%, 95.59% 8.061%, 100% 5.448%);
+              clip-path: polygon(100% 9.237%, 95.59% 8.061%, 100% 5.448%);
+      -webkit-transform-origin: 95.59% 8.061%;
+              transform-origin: 95.59% 8.061%;
+    }
+    .tiger .poly:nth-child(19) {
+      background: #60410F;
+      -webkit-clip-path: polygon(100% 11.716%, 100% 17.666%, 93.108% 12.156%);
+              clip-path: polygon(100% 11.716%, 100% 17.666%, 93.108% 12.156%);
+      -webkit-transform-origin: 100% 17.666%;
+              transform-origin: 100% 17.666%;
+    }
+    .tiger .poly:nth-child(20) {
+      background: #60410F;
+      -webkit-clip-path: polygon(66.796% 23.799%, 68.887% 18.698%, 54.296% 24.097%);
+              clip-path: polygon(66.796% 23.799%, 68.887% 18.698%, 54.296% 24.097%);
+      -webkit-transform-origin: 68.887% 18.698%;
+              transform-origin: 68.887% 18.698%;
+    }
+    .tiger .poly:nth-child(21) {
+      background: #60410F;
+      -webkit-clip-path: polygon(38.885% 20.116%, 37.794% 25.415%, 32.971% 21.673%);
+              clip-path: polygon(38.885% 20.116%, 37.794% 25.415%, 32.971% 21.673%);
+      -webkit-transform-origin: 37.794% 25.415%;
+              transform-origin: 37.794% 25.415%;
+    }
+    .tiger .poly:nth-child(22) {
+      background: #60410F;
+      -webkit-clip-path: polygon(31.898% 36.977%, 36.464% 36.351%, 31.898% 43.481%);
+              clip-path: polygon(31.898% 36.977%, 36.464% 36.351%, 31.898% 43.481%);
+      -webkit-transform-origin: 36.464% 36.351%;
+              transform-origin: 36.464% 36.351%;
+    }
+    .tiger .poly:nth-child(23) {
+      background: #60410F;
+      -webkit-clip-path: polygon(36.657% 44.802%, 41.593% 48.718%, 44.902% 41.103%);
+              clip-path: polygon(36.657% 44.802%, 41.593% 48.718%, 44.902% 41.103%);
+      -webkit-transform-origin: 41.593% 48.718%;
+              transform-origin: 41.593% 48.718%;
+    }
+    .tiger .poly:nth-child(24) {
+      background: #60410F;
+      -webkit-clip-path: polygon(59.121% 45.76%, 54.777% 50.913%, 50.068% 48.692%);
+              clip-path: polygon(59.121% 45.76%, 54.777% 50.913%, 50.068% 48.692%);
+      -webkit-transform-origin: 54.777% 50.913%;
+              transform-origin: 54.777% 50.913%;
+    }
+    .tiger .poly:nth-child(25) {
+      background: #60410F;
+      -webkit-clip-path: polygon(31.898% 43.481%, 27.915% 49.482%, 23.933% 44.233%);
+              clip-path: polygon(31.898% 43.481%, 27.915% 49.482%, 23.933% 44.233%);
+      -webkit-transform-origin: 27.915% 49.482%;
+              transform-origin: 27.915% 49.482%;
+    }
+    .tiger .poly:nth-child(26) {
+      background: #60410F;
+      -webkit-clip-path: polygon(41.593% 48.718%, 37.891% 53.142%, 46.027% 60.406%);
+              clip-path: polygon(41.593% 48.718%, 37.891% 53.142%, 46.027% 60.406%);
+      -webkit-transform-origin: 37.891% 53.142%;
+              transform-origin: 37.891% 53.142%;
+    }
+    .tiger .poly:nth-child(27) {
+      background: #60410F;
+      -webkit-clip-path: polygon(56.833% 70.429%, 52.906% 73.676%, 61.089% 80.057%);
+              clip-path: polygon(56.833% 70.429%, 52.906% 73.676%, 61.089% 80.057%);
+      -webkit-transform-origin: 52.906% 73.676%;
+              transform-origin: 52.906% 73.676%;
+    }
+    .tiger .poly:nth-child(28) {
+      background: #60410F;
+      -webkit-clip-path: polygon(93.346% 15.359%, 84.322% 14.749%, 66.796% 23.799%);
+              clip-path: polygon(93.346% 15.359%, 84.322% 14.749%, 66.796% 23.799%);
+      -webkit-transform-origin: 84.322% 14.749%;
+              transform-origin: 84.322% 14.749%;
+    }
+    .tiger .poly:nth-child(29) {
+      background: #544C4C;
+      -webkit-clip-path: polygon(31.898% 36.977%, 41.959% 29.87%, 42.073% 35.583%);
+              clip-path: polygon(31.898% 36.977%, 41.959% 29.87%, 42.073% 35.583%);
+      -webkit-transform-origin: 41.959% 29.87%;
+              transform-origin: 41.959% 29.87%;
+    }
+    .tiger .poly:nth-child(30) {
+      background: #544C4C;
+      -webkit-clip-path: polygon(27.915% 49.482%, 27.54% 59.545%, 22.27% 58.043%);
+              clip-path: polygon(27.915% 49.482%, 27.54% 59.545%, 22.27% 58.043%);
+      -webkit-transform-origin: 27.54% 59.545%;
+              transform-origin: 27.54% 59.545%;
+    }
+    .tiger .poly:nth-child(31) {
+      background: #544C4C;
+      -webkit-clip-path: polygon(46.027% 60.406%, 63.598% 60.654%, 44.669% 56.827%);
+              clip-path: polygon(46.027% 60.406%, 63.598% 60.654%, 44.669% 56.827%);
+      -webkit-transform-origin: 63.598% 60.654%;
+              transform-origin: 63.598% 60.654%;
+    }
+    .tiger .poly:nth-child(32) {
+      background: #544C4C;
+      -webkit-clip-path: polygon(38.998% 65.996%, 42.521% 71.218%, 31.898% 76.561%);
+              clip-path: polygon(38.998% 65.996%, 42.521% 71.218%, 31.898% 76.561%);
+      -webkit-transform-origin: 42.521% 71.218%;
+              transform-origin: 42.521% 71.218%;
+    }
+    .tiger .poly:nth-child(33) {
+      background: #544C4C;
+      -webkit-clip-path: polygon(56.833% 70.429%, 42.521% 71.218%, 52.906% 73.676%);
+              clip-path: polygon(56.833% 70.429%, 42.521% 71.218%, 52.906% 73.676%);
+      -webkit-transform-origin: 42.521% 71.218%;
+              transform-origin: 42.521% 71.218%;
+    }
+    .tiger .poly:nth-child(34) {
+      background: #544C4C;
+      -webkit-clip-path: polygon(58.524% 34.363%, 71.978% 39.321%, 66.997% 34.8%);
+              clip-path: polygon(58.524% 34.363%, 71.978% 39.321%, 66.997% 34.8%);
+      -webkit-transform-origin: 71.978% 39.321%;
+              transform-origin: 71.978% 39.321%;
+    }
+    .tiger .poly:nth-child(35) {
+      background: #544C4C;
+      -webkit-clip-path: polygon(25.591% 9.53%, 32.971% 21.673%, 38.885% 20.116%);
+              clip-path: polygon(25.591% 9.53%, 32.971% 21.673%, 38.885% 20.116%);
+      -webkit-transform-origin: 32.971% 21.673%;
+              transform-origin: 32.971% 21.673%;
+    }
+    .tiger .poly:nth-child(36) {
+      background: #63561E;
+      -webkit-clip-path: polygon(32.971% 21.673%, 28.746% 25.487%, 25.923% 20.668%);
+              clip-path: polygon(32.971% 21.673%, 28.746% 25.487%, 25.923% 20.668%);
+      -webkit-transform-origin: 28.746% 25.487%;
+              transform-origin: 28.746% 25.487%;
+    }
+    .tiger .poly:nth-child(37) {
+      background: #84701E;
+      -webkit-clip-path: polygon(23.933% 44.233%, 27.915% 49.482%, 22.27% 58.043%);
+              clip-path: polygon(23.933% 44.233%, 27.915% 49.482%, 22.27% 58.043%);
+      -webkit-transform-origin: 27.915% 49.482%;
+              transform-origin: 27.915% 49.482%;
+    }
+    .tiger .poly:nth-child(38) {
+      background: #84701E;
+      -webkit-clip-path: polygon(36.657% 44.802%, 37.891% 53.142%, 41.593% 48.718%);
+              clip-path: polygon(36.657% 44.802%, 37.891% 53.142%, 41.593% 48.718%);
+      -webkit-transform-origin: 37.891% 53.142%;
+              transform-origin: 37.891% 53.142%;
+    }
+    .tiger .poly:nth-child(39) {
+      background: #84701E;
+      -webkit-clip-path: polygon(42.521% 71.218%, 50.929% 64.782%, 56.833% 70.429%);
+              clip-path: polygon(42.521% 71.218%, 50.929% 64.782%, 56.833% 70.429%);
+      -webkit-transform-origin: 50.929% 64.782%;
+              transform-origin: 50.929% 64.782%;
+    }
+    .tiger .poly:nth-child(40) {
+      background: #84701E;
+      -webkit-clip-path: polygon(50.929% 64.782%, 74.176% 57.193%, 61.63% 65.996%);
+              clip-path: polygon(50.929% 64.782%, 74.176% 57.193%, 61.63% 65.996%);
+      -webkit-transform-origin: 74.176% 57.193%;
+              transform-origin: 74.176% 57.193%;
+    }
+    .tiger .poly:nth-child(41) {
+      background: #544C4C;
+      -webkit-clip-path: polygon(27.54% 59.545%, 22.27% 68.365%, 31.898% 76.561%);
+              clip-path: polygon(27.54% 59.545%, 22.27% 68.365%, 31.898% 76.561%);
+      -webkit-transform-origin: 22.27% 68.365%;
+              transform-origin: 22.27% 68.365%;
+    }
+    .tiger .poly:nth-child(42) {
+      background: #84701E;
+      -webkit-clip-path: polygon(54.296% 24.097%, 48.893% 32.092%, 41.959% 29.87%);
+              clip-path: polygon(54.296% 24.097%, 48.893% 32.092%, 41.959% 29.87%);
+      -webkit-transform-origin: 48.893% 32.092%;
+              transform-origin: 48.893% 32.092%;
+    }
+    .tiger .poly:nth-child(43) {
+      background: #937057;
+      -webkit-clip-path: polygon(66.796% 23.799%, 48.893% 32.092%, 54.296% 24.097%);
+              clip-path: polygon(66.796% 23.799%, 48.893% 32.092%, 54.296% 24.097%);
+      -webkit-transform-origin: 48.893% 32.092%;
+              transform-origin: 48.893% 32.092%;
+    }
+    .tiger .poly:nth-child(44) {
+      background: #937057;
+      -webkit-clip-path: polygon(100% 17.666%, 93.108% 12.156%, 93.856% 22.22%);
+              clip-path: polygon(100% 17.666%, 93.108% 12.156%, 93.856% 22.22%);
+      -webkit-transform-origin: 93.108% 12.156%;
+              transform-origin: 93.108% 12.156%;
+    }
+    .tiger .poly:nth-child(45) {
+      background: #937057;
+      -webkit-clip-path: polygon(65.251% 72.053%, 75.821% 72.31%, 77.374% 76.257%);
+              clip-path: polygon(65.251% 72.053%, 75.821% 72.31%, 77.374% 76.257%);
+      -webkit-transform-origin: 75.821% 72.31%;
+              transform-origin: 75.821% 72.31%;
+    }
+    .tiger .poly:nth-child(46) {
+      background: #C07E48;
+      -webkit-clip-path: polygon(83.624% 48.155%, 82.417% 55.917%, 74.668% 51.606%);
+              clip-path: polygon(83.624% 48.155%, 82.417% 55.917%, 74.668% 51.606%);
+      -webkit-transform-origin: 82.417% 55.917%;
+              transform-origin: 82.417% 55.917%;
+    }
+    .tiger .poly:nth-child(47) {
+      background: #C07E48;
+      -webkit-clip-path: polygon(91.15% 50.669%, 83.1% 41.932%, 93.856% 41.103%);
+              clip-path: polygon(91.15% 50.669%, 83.1% 41.932%, 93.856% 41.103%);
+      -webkit-transform-origin: 83.1% 41.932%;
+              transform-origin: 83.1% 41.932%;
+    }
+    .tiger .poly:nth-child(48) {
+      background: #C07E48;
+      -webkit-clip-path: polygon(91.15% 50.669%, 91.15% 64.357%, 85.633% 60.421%);
+              clip-path: polygon(91.15% 50.669%, 91.15% 64.357%, 85.633% 60.421%);
+      -webkit-transform-origin: 91.15% 64.357%;
+              transform-origin: 91.15% 64.357%;
+    }
+    .tiger .poly:nth-child(49) {
+      background: #937057;
+      -webkit-clip-path: polygon(85.633% 60.421%, 79.008% 64.659%, 91.15% 64.357%);
+              clip-path: polygon(85.633% 60.421%, 79.008% 64.659%, 91.15% 64.357%);
+      -webkit-transform-origin: 79.008% 64.659%;
+              transform-origin: 79.008% 64.659%;
+    }
+    .tiger .poly:nth-child(50) {
+      background: #C07E48;
+      -webkit-clip-path: polygon(79.008% 64.659%, 80.572% 69.792%, 91.15% 64.357%);
+              clip-path: polygon(79.008% 64.659%, 80.572% 69.792%, 91.15% 64.357%);
+      -webkit-transform-origin: 80.572% 69.792%;
+              transform-origin: 80.572% 69.792%;
+    }
+    .tiger .poly:nth-child(51) {
+      background: #C98777;
+      -webkit-clip-path: polygon(74.668% 51.606%, 74.176% 57.193%, 82.417% 55.917%);
+              clip-path: polygon(74.668% 51.606%, 74.176% 57.193%, 82.417% 55.917%);
+      -webkit-transform-origin: 74.176% 57.193%;
+              transform-origin: 74.176% 57.193%;
+    }
+    .tiger .poly:nth-child(52) {
+      background: #E09003;
+      -webkit-clip-path: polygon(100% 35.583%, 93.856% 41.103%, 100% 47.599%);
+              clip-path: polygon(100% 35.583%, 93.856% 41.103%, 100% 47.599%);
+      -webkit-transform-origin: 93.856% 41.103%;
+              transform-origin: 93.856% 41.103%;
+    }
+    .tiger .poly:nth-child(53) {
+      background: #E09003;
+      -webkit-clip-path: polygon(74.176% 57.193%, 79.008% 64.659%, 61.63% 65.996%);
+              clip-path: polygon(74.176% 57.193%, 79.008% 64.659%, 61.63% 65.996%);
+      -webkit-transform-origin: 79.008% 64.659%;
+              transform-origin: 79.008% 64.659%;
+    }
+    .tiger .poly:nth-child(54) {
+      background: #E09003;
+      -webkit-clip-path: polygon(82.417% 55.917%, 85.633% 60.421%, 74.176% 57.193%);
+              clip-path: polygon(82.417% 55.917%, 85.633% 60.421%, 74.176% 57.193%);
+      -webkit-transform-origin: 85.633% 60.421%;
+              transform-origin: 85.633% 60.421%;
+    }
+    .tiger .poly:nth-child(55) {
+      background: #E09003;
+      -webkit-clip-path: polygon(83.624% 48.155%, 91.15% 50.669%, 82.417% 55.917%);
+              clip-path: polygon(83.624% 48.155%, 91.15% 50.669%, 82.417% 55.917%);
+      -webkit-transform-origin: 91.15% 50.669%;
+              transform-origin: 91.15% 50.669%;
+    }
+    .tiger .poly:nth-child(56) {
+      background: #FF8D43;
+      -webkit-clip-path: polygon(91.15% 50.669%, 83.1% 41.932%, 83.624% 48.155%);
+              clip-path: polygon(91.15% 50.669%, 83.1% 41.932%, 83.624% 48.155%);
+      -webkit-transform-origin: 83.1% 41.932%;
+              transform-origin: 83.1% 41.932%;
+    }
+    .tiger .poly:nth-child(57) {
+      background: #FF8D43;
+      -webkit-clip-path: polygon(74.176% 57.193%, 85.633% 60.421%, 79.008% 64.659%);
+              clip-path: polygon(74.176% 57.193%, 85.633% 60.421%, 79.008% 64.659%);
+      -webkit-transform-origin: 85.633% 60.421%;
+              transform-origin: 85.633% 60.421%;
+    }
+    .tiger .poly:nth-child(58) {
+      background: #FF8D43;
+      -webkit-clip-path: polygon(62.614% 52.517%, 69.133% 48.972%, 74.668% 51.606%);
+              clip-path: polygon(62.614% 52.517%, 69.133% 48.972%, 74.668% 51.606%);
+      -webkit-transform-origin: 69.133% 48.972%;
+              transform-origin: 69.133% 48.972%;
+    }
+    .tiger .poly:nth-child(59) {
+      background: #FF8D43;
+      -webkit-clip-path: polygon(79.008% 64.659%, 75.821% 72.31%, 80.572% 69.792%);
+              clip-path: polygon(79.008% 64.659%, 75.821% 72.31%, 80.572% 69.792%);
+      -webkit-transform-origin: 75.821% 72.31%;
+              transform-origin: 75.821% 72.31%;
+    }
+    .tiger .poly:nth-child(60) {
+      background: #FFAE1F;
+      -webkit-clip-path: polygon(69.133% 48.972%, 59.121% 45.76%, 62.614% 52.517%);
+              clip-path: polygon(69.133% 48.972%, 59.121% 45.76%, 62.614% 52.517%);
+      -webkit-transform-origin: 59.121% 45.76%;
+              transform-origin: 59.121% 45.76%;
+    }
+    .tiger .poly:nth-child(61) {
+      background: #FFAE1F;
+      -webkit-clip-path: polygon(79.008% 64.659%, 65.251% 72.053%, 61.63% 65.996%);
+              clip-path: polygon(79.008% 64.659%, 65.251% 72.053%, 61.63% 65.996%);
+      -webkit-transform-origin: 65.251% 72.053%;
+              transform-origin: 65.251% 72.053%;
+    }
+    .tiger .poly:nth-child(62) {
+      background: #FFAE1F;
+      -webkit-clip-path: polygon(93.856% 41.103%, 88.478% 32.723%, 83.1% 41.932%);
+              clip-path: polygon(93.856% 41.103%, 88.478% 32.723%, 83.1% 41.932%);
+      -webkit-transform-origin: 88.478% 32.723%;
+              transform-origin: 88.478% 32.723%;
+    }
+    .tiger .poly:nth-child(63) {
+      background: #FFAE1F;
+      -webkit-clip-path: polygon(93.856% 41.103%, 94.837% 34.302%, 100% 35.583%);
+              clip-path: polygon(93.856% 41.103%, 94.837% 34.302%, 100% 35.583%);
+      -webkit-transform-origin: 94.837% 34.302%;
+              transform-origin: 94.837% 34.302%;
+    }
+    .tiger .poly:nth-child(64) {
+      background: #FFAE1F;
+      -webkit-clip-path: polygon(74.668% 51.606%, 74.176% 57.193%, 62.614% 52.517%);
+              clip-path: polygon(74.668% 51.606%, 74.176% 57.193%, 62.614% 52.517%);
+      -webkit-transform-origin: 74.176% 57.193%;
+              transform-origin: 74.176% 57.193%;
+    }
+    .tiger .poly:nth-child(65) {
+      background: #F9B26B;
+      -webkit-clip-path: polygon(79.008% 64.659%, 75.821% 72.31%, 65.251% 72.053%);
+              clip-path: polygon(79.008% 64.659%, 75.821% 72.31%, 65.251% 72.053%);
+      -webkit-transform-origin: 75.821% 72.31%;
+              transform-origin: 75.821% 72.31%;
+    }
+    .tiger .poly:nth-child(66) {
+      background: #F9B26B;
+      -webkit-clip-path: polygon(74.176% 57.193%, 62.614% 52.517%, 63.598% 60.646%);
+              clip-path: polygon(74.176% 57.193%, 62.614% 52.517%, 63.598% 60.646%);
+      -webkit-transform-origin: 62.614% 52.517%;
+              transform-origin: 62.614% 52.517%;
+    }
+    .tiger .poly:nth-child(67) {
+      background: #F9B26B;
+      -webkit-clip-path: polygon(59.121% 45.76%, 58.524% 41.103%, 50.068% 41.103%);
+              clip-path: polygon(59.121% 45.76%, 58.524% 41.103%, 50.068% 41.103%);
+      -webkit-transform-origin: 58.524% 41.103%;
+              transform-origin: 58.524% 41.103%;
+    }
+    .tiger .poly:nth-child(68) {
+      background: #F9B26B;
+      -webkit-clip-path: polygon(88.478% 32.723%, 100% 35.583%, 100% 23.843%);
+              clip-path: polygon(88.478% 32.723%, 100% 35.583%, 100% 23.843%);
+      -webkit-transform-origin: 100% 35.583%;
+              transform-origin: 100% 35.583%;
+    }
+    .tiger .poly:nth-child(69) {
+      background: #EFC075;
+      -webkit-clip-path: polygon(100% 23.843%, 93.856% 22.22%, 88.478% 32.723%);
+              clip-path: polygon(100% 23.843%, 93.856% 22.22%, 88.478% 32.723%);
+      -webkit-transform-origin: 100% 23.843%;
+              transform-origin: 100% 23.843%;
+    }
+    .tiger .poly:nth-child(70) {
+      background: #EFC075;
+      -webkit-clip-path: polygon(91.15% 64.357%, 87.829% 71.583%, 85% 72.727%, 80.572% 69.792%);
+              clip-path: polygon(91.15% 64.357%, 87.829% 71.583%, 85% 72.727%, 80.572% 69.792%);
+      -webkit-transform-origin: 85% 72.727%;
+              transform-origin: 85% 72.727%;
+    }
+    .tiger .poly:nth-child(71) {
+      background: #EFC075;
+      -webkit-clip-path: polygon(59.121% 45.76%, 62.614% 52.517%, 54.777% 50.913%);
+              clip-path: polygon(59.121% 45.76%, 62.614% 52.517%, 54.777% 50.913%);
+      -webkit-transform-origin: 62.614% 52.517%;
+              transform-origin: 62.614% 52.517%;
+    }
+    .tiger .poly:nth-child(72) {
+      background: #EFC075;
+      -webkit-clip-path: polygon(84.322% 14.749%, 68.887% 18.698%, 66.796% 23.799%);
+              clip-path: polygon(84.322% 14.749%, 68.887% 18.698%, 66.796% 23.799%);
+      -webkit-transform-origin: 68.887% 18.698%;
+              transform-origin: 68.887% 18.698%;
+    }
+    .tiger .poly:nth-child(73) {
+      background: #EFC075;
+      -webkit-clip-path: polygon(48.893% 32.092%, 42.073% 35.583%, 41.959% 29.87%);
+              clip-path: polygon(48.893% 32.092%, 42.073% 35.583%, 41.959% 29.87%);
+      -webkit-transform-origin: 42.073% 35.583%;
+              transform-origin: 42.073% 35.583%;
+    }
+    .tiger .poly:nth-child(74) {
+      background: #F7DC8F;
+      -webkit-clip-path: polygon(93.856% 22.22%, 88.478% 32.723%, 82.702% 25.973%);
+              clip-path: polygon(93.856% 22.22%, 88.478% 32.723%, 82.702% 25.973%);
+      -webkit-transform-origin: 88.478% 32.723%;
+              transform-origin: 88.478% 32.723%;
+    }
+    .tiger .poly:nth-child(75) {
+      background: #F7DC8F;
+      -webkit-clip-path: polygon(48.893% 32.092%, 58.524% 34.363%, 42.073% 35.583%);
+              clip-path: polygon(48.893% 32.092%, 58.524% 34.363%, 42.073% 35.583%);
+      -webkit-transform-origin: 58.524% 34.363%;
+              transform-origin: 58.524% 34.363%;
+    }
+    .tiger .poly:nth-child(76) {
+      background: #F7DC8F;
+      -webkit-clip-path: polygon(50.068% 41.103%, 50.068% 48.692%, 44.902% 41.103%);
+              clip-path: polygon(50.068% 41.103%, 50.068% 48.692%, 44.902% 41.103%);
+      -webkit-transform-origin: 50.068% 48.692%;
+              transform-origin: 50.068% 48.692%;
+    }
+    .tiger .poly:nth-child(77) {
+      background: #F7DC8F;
+      -webkit-clip-path: polygon(42.073% 35.583%, 31.731% 43.733%, 36.464% 36.351%);
+              clip-path: polygon(42.073% 35.583%, 31.731% 43.733%, 36.464% 36.351%);
+      -webkit-transform-origin: 31.731% 43.733%;
+              transform-origin: 31.731% 43.733%;
+    }
+    .tiger .poly:nth-child(78) {
+      background: #F7DC8F;
+      -webkit-clip-path: polygon(66.796% 23.799%, 93.346% 15.359%, 93.856% 22.22%);
+              clip-path: polygon(66.796% 23.799%, 93.346% 15.359%, 93.856% 22.22%);
+      -webkit-transform-origin: 93.346% 15.359%;
+              transform-origin: 93.346% 15.359%;
+    }
+    .tiger .poly:nth-child(80) {
+      background: #F7DC8F;
+      -webkit-clip-path: polygon(61.089% 80.057%, 77.374% 76.257%, 65.251% 72.053%);
+              clip-path: polygon(61.089% 80.057%, 77.374% 76.257%, 65.251% 72.053%);
+      -webkit-transform-origin: 77.374% 76.257%;
+              transform-origin: 77.374% 76.257%;
+    }
+    .tiger .poly:nth-child(81) {
+      background: #F7DC8F;
+      -webkit-clip-path: polygon(41.959% 29.87%, 28.128% 31.707%, 31.898% 36.977%);
+              clip-path: polygon(41.959% 29.87%, 28.128% 31.707%, 31.898% 36.977%);
+      -webkit-transform-origin: 28.128% 31.707%;
+              transform-origin: 28.128% 31.707%;
+    }
+    .tiger .poly:nth-child(82) {
+      background: #F7DC8F;
+      -webkit-clip-path: polygon(48.783% 22.767%, 54.296% 24.097%, 37.794% 25.415%);
+              clip-path: polygon(48.783% 22.767%, 54.296% 24.097%, 37.794% 25.415%);
+      -webkit-transform-origin: 54.296% 24.097%;
+              transform-origin: 54.296% 24.097%;
+    }
+    .tiger .poly:nth-child(83) {
+      background: #EAD4B5;
+      -webkit-clip-path: polygon(50.068% 41.103%, 42.073% 35.583%, 44.902% 41.103%);
+              clip-path: polygon(50.068% 41.103%, 42.073% 35.583%, 44.902% 41.103%);
+      -webkit-transform-origin: 42.073% 35.583%;
+              transform-origin: 42.073% 35.583%;
+    }
+    .tiger .poly:nth-child(84) {
+      background: #EAD4B5;
+      -webkit-clip-path: polygon(82.417% 30.902%, 83.1% 41.932%, 75.741% 42.957%);
+              clip-path: polygon(82.417% 30.902%, 83.1% 41.932%, 75.741% 42.957%);
+      -webkit-transform-origin: 83.1% 41.932%;
+              transform-origin: 83.1% 41.932%;
+    }
+    .tiger .poly:nth-child(85) {
+      background: #EAD4B5;
+      -webkit-clip-path: polygon(50.068% 48.692%, 41.593% 48.718%, 44.902% 41.103%);
+              clip-path: polygon(50.068% 48.692%, 41.593% 48.718%, 44.902% 41.103%);
+      -webkit-transform-origin: 41.593% 48.718%;
+              transform-origin: 41.593% 48.718%;
+    }
+    .tiger .poly:nth-child(86) {
+      background: #EAD4B5;
+      -webkit-clip-path: polygon(62.614% 52.517%, 63.598% 60.646%, 57.005% 55.373%);
+              clip-path: polygon(62.614% 52.517%, 63.598% 60.646%, 57.005% 55.373%);
+      -webkit-transform-origin: 63.598% 60.646%;
+              transform-origin: 63.598% 60.646%;
+    }
+    .tiger .poly:nth-child(87) {
+      background: #EAD4B5;
+      -webkit-clip-path: polygon(10.338% 77.958%, 31.898% 76.561%, 22.27% 68.365%);
+              clip-path: polygon(10.338% 77.958%, 31.898% 76.561%, 22.27% 68.365%);
+      -webkit-transform-origin: 31.898% 76.561%;
+              transform-origin: 31.898% 76.561%;
+    }
+    .tiger .poly:nth-child(88) {
+      background: #EAD4B5;
+      -webkit-clip-path: polygon(52.906% 73.676%, 41.515% 79.905%, 42.521% 71.218%);
+              clip-path: polygon(52.906% 73.676%, 41.515% 79.905%, 42.521% 71.218%);
+      -webkit-transform-origin: 41.515% 79.905%;
+              transform-origin: 41.515% 79.905%;
+    }
+    .tiger .poly:nth-child(89) {
+      background: #EAD4B5;
+      -webkit-clip-path: polygon(41.959% 29.87%, 41.857% 29.761%, 37.794% 25.415%, 28.128% 31.707%);
+              clip-path: polygon(41.959% 29.87%, 41.857% 29.761%, 37.794% 25.415%, 28.128% 31.707%);
+      -webkit-transform-origin: 37.794% 25.415%;
+              transform-origin: 37.794% 25.415%;
+    }
+    .tiger .poly:nth-child(90) {
+      background: #EAD4B5;
+      -webkit-clip-path: polygon(31.898% 36.977%, 15.811% 39.682%, 23.933% 44.233%);
+              clip-path: polygon(31.898% 36.977%, 15.811% 39.682%, 23.933% 44.233%);
+      -webkit-transform-origin: 15.811% 39.682%;
+              transform-origin: 15.811% 39.682%;
+    }
+    .tiger .poly:nth-child(91) {
+      background: #EADDCE;
+      -webkit-clip-path: polygon(28.128% 31.707%, 31.898% 36.977%, 15.811% 39.682%);
+              clip-path: polygon(28.128% 31.707%, 31.898% 36.977%, 15.811% 39.682%);
+      -webkit-transform-origin: 31.898% 36.977%;
+              transform-origin: 31.898% 36.977%;
+    }
+    .tiger .poly:nth-child(92) {
+      background: #EADDCE;
+      -webkit-clip-path: polygon(50.068% 41.103%, 42.073% 35.583%, 58.524% 34.363%);
+              clip-path: polygon(50.068% 41.103%, 42.073% 35.583%, 58.524% 34.363%);
+      -webkit-transform-origin: 42.073% 35.583%;
+              transform-origin: 42.073% 35.583%;
+    }
+    .tiger .poly:nth-child(93) {
+      background: #EADDCE;
+      -webkit-clip-path: polygon(62.768% 42.767%, 59.121% 45.76%, 58.524% 41.103%);
+              clip-path: polygon(62.768% 42.767%, 59.121% 45.76%, 58.524% 41.103%);
+      -webkit-transform-origin: 59.121% 45.76%;
+              transform-origin: 59.121% 45.76%;
+    }
+    .tiger .poly:nth-child(94) {
+      background: #EADDCE;
+      -webkit-clip-path: polygon(75.741% 42.957%, 83.1% 41.932%, 83.624% 48.155%);
+              clip-path: polygon(75.741% 42.957%, 83.1% 41.932%, 83.624% 48.155%);
+      -webkit-transform-origin: 83.1% 41.932%;
+              transform-origin: 83.1% 41.932%;
+    }
+    .tiger .poly:nth-child(95) {
+      background: #EADDCE;
+      -webkit-clip-path: polygon(75.741% 42.957%, 71.978% 39.321%, 67.842% 40.602%);
+              clip-path: polygon(75.741% 42.957%, 71.978% 39.321%, 67.842% 40.602%);
+      -webkit-transform-origin: 71.978% 39.321%;
+              transform-origin: 71.978% 39.321%;
+    }
+    .tiger .poly:nth-child(96) {
+      background: #EADDCE;
+      -webkit-clip-path: polygon(82.417% 30.902%, 82.702% 25.973%, 88.478% 32.723%);
+              clip-path: polygon(82.417% 30.902%, 82.702% 25.973%, 88.478% 32.723%);
+      -webkit-transform-origin: 82.702% 25.973%;
+              transform-origin: 82.702% 25.973%;
+    }
+    .tiger .poly:nth-child(97) {
+      background: #EADDCE;
+      -webkit-clip-path: polygon(66.796% 23.799%, 66.997% 34.8%, 58.524% 34.363%);
+              clip-path: polygon(66.796% 23.799%, 66.997% 34.8%, 58.524% 34.363%);
+      -webkit-transform-origin: 66.997% 34.8%;
+              transform-origin: 66.997% 34.8%;
+    }
+    .tiger .poly:nth-child(98) {
+      background: #EADDCE;
+      -webkit-clip-path: polygon(93.346% 15.359%, 69.093% 13.69%, 93.108% 12.156%);
+              clip-path: polygon(93.346% 15.359%, 69.093% 13.69%, 93.108% 12.156%);
+      -webkit-transform-origin: 69.093% 13.69%;
+              transform-origin: 69.093% 13.69%;
+    }
+    .tiger .poly:nth-child(99) {
+      background: #EADDCE;
+      -webkit-clip-path: polygon(61.63% 65.996%, 65.251% 72.053%, 56.833% 70.429%);
+              clip-path: polygon(61.63% 65.996%, 65.251% 72.053%, 56.833% 70.429%);
+      -webkit-transform-origin: 65.251% 72.053%;
+              transform-origin: 65.251% 72.053%;
+    }
+    .tiger .poly:nth-child(100) {
+      background: #EADDCE;
+      -webkit-clip-path: polygon(22.27% 58.043%, 22.27% 68.365%, 0.002% 66.578%);
+              clip-path: polygon(22.27% 58.043%, 22.27% 68.365%, 0.002% 66.578%);
+      -webkit-transform-origin: 22.27% 68.365%;
+              transform-origin: 22.27% 68.365%;
+    }
+    .tiger .poly:nth-child(101) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(66.796% 23.799%, 78.197% 29.348%, 66.997% 34.8%);
+              clip-path: polygon(66.796% 23.799%, 78.197% 29.348%, 66.997% 34.8%);
+      -webkit-transform-origin: 78.197% 29.348%;
+              transform-origin: 78.197% 29.348%;
+    }
+    .tiger .poly:nth-child(102) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(82.702% 25.973%, 78.197% 29.348%, 82.417% 30.902%);
+              clip-path: polygon(82.702% 25.973%, 78.197% 29.348%, 82.417% 30.902%);
+      -webkit-transform-origin: 78.197% 29.348%;
+              transform-origin: 78.197% 29.348%;
+    }
+    .tiger .poly:nth-child(103) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(82.417% 30.902%, 88.478% 32.723%, 83.1% 41.932%);
+              clip-path: polygon(82.417% 30.902%, 88.478% 32.723%, 83.1% 41.932%);
+      -webkit-transform-origin: 88.478% 32.723%;
+              transform-origin: 88.478% 32.723%;
+    }
+    .tiger .poly:nth-child(104) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(71.978% 32.375%, 71.978% 39.321%, 76.411% 35.106%);
+              clip-path: polygon(71.978% 32.375%, 71.978% 39.321%, 76.411% 35.106%);
+      -webkit-transform-origin: 71.978% 39.321%;
+              transform-origin: 71.978% 39.321%;
+    }
+    .tiger .poly:nth-child(105) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(15.811% 39.682%, 23.933% 44.233%, 10.125% 47.419%);
+              clip-path: polygon(15.811% 39.682%, 23.933% 44.233%, 10.125% 47.419%);
+      -webkit-transform-origin: 23.933% 44.233%;
+              transform-origin: 23.933% 44.233%;
+    }
+    .tiger .poly:nth-child(106) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(10.125% 47.419%, 22.27% 58.043%, 3.45% 58.62%);
+              clip-path: polygon(10.125% 47.419%, 22.27% 58.043%, 3.45% 58.62%);
+      -webkit-transform-origin: 22.27% 58.043%;
+              transform-origin: 22.27% 58.043%;
+    }
+    .tiger .poly:nth-child(107) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(50.068% 48.692%, 44.669% 56.827%, 41.593% 48.718%);
+              clip-path: polygon(50.068% 48.692%, 44.669% 56.827%, 41.593% 48.718%);
+      -webkit-transform-origin: 44.669% 56.827%;
+              transform-origin: 44.669% 56.827%;
+    }
+    .tiger .poly:nth-child(108) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(44.669% 56.827%, 54.777% 50.913%, 57.005% 55.373%);
+              clip-path: polygon(44.669% 56.827%, 54.777% 50.913%, 57.005% 55.373%);
+      -webkit-transform-origin: 54.777% 50.913%;
+              transform-origin: 54.777% 50.913%;
+    }
+    .tiger .poly:nth-child(109) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(37.891% 53.142%, 27.915% 49.482%, 27.54% 59.545%);
+              clip-path: polygon(37.891% 53.142%, 27.915% 49.482%, 27.54% 59.545%);
+      -webkit-transform-origin: 27.915% 49.482%;
+              transform-origin: 27.915% 49.482%;
+    }
+    .tiger .poly:nth-child(110) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(61.63% 65.996%, 50.929% 64.782%, 56.833% 70.429%);
+              clip-path: polygon(61.63% 65.996%, 50.929% 64.782%, 56.833% 70.429%);
+      -webkit-transform-origin: 50.929% 64.782%;
+              transform-origin: 50.929% 64.782%;
+    }
+    .tiger .poly:nth-child(111) {
+      background: #FEFFF3;
+      -webkit-clip-path: polygon(56.833% 70.429%, 65.251% 72.053%, 61.089% 80.057%);
+              clip-path: polygon(56.833% 70.429%, 65.251% 72.053%, 61.089% 80.057%);
+      -webkit-transform-origin: 65.251% 72.053%;
+              transform-origin: 65.251% 72.053%;
+    }
+    .tiger .poly:nth-child(112) {
+      background: #E8E9EB;
+      -webkit-clip-path: polygon(23.933% 44.233%, 22.27% 58.043%, 10.125% 47.419%);
+              clip-path: polygon(23.933% 44.233%, 22.27% 58.043%, 10.125% 47.419%);
+      -webkit-transform-origin: 22.27% 58.043%;
+              transform-origin: 22.27% 58.043%;
+    }
+    .tiger .poly:nth-child(113) {
+      background: #E8E9EB;
+      -webkit-clip-path: polygon(27.915% 49.482%, 36.657% 44.802%, 37.891% 53.142%);
+              clip-path: polygon(27.915% 49.482%, 36.657% 44.802%, 37.891% 53.142%);
+      -webkit-transform-origin: 36.657% 44.802%;
+              transform-origin: 36.657% 44.802%;
+    }
+    .tiger .poly:nth-child(114) {
+      background: #E8E9EB;
+      -webkit-clip-path: polygon(37.891% 53.142%, 38.383% 61.973%, 27.54% 59.545%);
+              clip-path: polygon(37.891% 53.142%, 38.383% 61.973%, 27.54% 59.545%);
+      -webkit-transform-origin: 38.383% 61.973%;
+              transform-origin: 38.383% 61.973%;
+    }
+    .tiger .poly:nth-child(115) {
+      background: #E8E9EB;
+      -webkit-clip-path: polygon(54.777% 50.913%, 50.068% 48.692%, 44.669% 56.827%);
+              clip-path: polygon(54.777% 50.913%, 50.068% 48.692%, 44.669% 56.827%);
+      -webkit-transform-origin: 50.068% 48.692%;
+              transform-origin: 50.068% 48.692%;
+    }
+    .tiger .poly:nth-child(116) {
+      background: #E8E9EB;
+      -webkit-clip-path: polygon(57.005% 55.373%, 63.598% 60.646%, 44.669% 56.827%);
+              clip-path: polygon(57.005% 55.373%, 63.598% 60.646%, 44.669% 56.827%);
+      -webkit-transform-origin: 63.598% 60.646%;
+              transform-origin: 63.598% 60.646%;
+    }
+    .tiger .poly:nth-child(117) {
+      background: #E8E9EB;
+      -webkit-clip-path: polygon(69.133% 48.972%, 75.926% 47.677%, 74.668% 51.606%);
+              clip-path: polygon(69.133% 48.972%, 75.926% 47.677%, 74.668% 51.606%);
+      -webkit-transform-origin: 75.926% 47.677%;
+              transform-origin: 75.926% 47.677%;
+    }
+    .tiger .poly:nth-child(118) {
+      background: #E8E9EB;
+      -webkit-clip-path: polygon(58.524% 34.363%, 63.598% 38.917%, 58.524% 41.103%);
+              clip-path: polygon(58.524% 34.363%, 63.598% 38.917%, 58.524% 41.103%);
+      -webkit-transform-origin: 63.598% 38.917%;
+              transform-origin: 63.598% 38.917%;
+    }
+    .tiger .poly:nth-child(119) {
+      background: #E8E9EB;
+      -webkit-clip-path: polygon(82.702% 25.973%, 66.796% 23.799%, 78.197% 29.348%);
+              clip-path: polygon(82.702% 25.973%, 66.796% 23.799%, 78.197% 29.348%);
+      -webkit-transform-origin: 66.796% 23.799%;
+              transform-origin: 66.796% 23.799%;
+    }
+    .tiger .poly:nth-child(120) {
+      background: #E8E9EB;
+      -webkit-clip-path: polygon(7.145% 58.507%, 10.125% 62.698%, 22.27% 58.043%);
+              clip-path: polygon(7.145% 58.507%, 10.125% 62.698%, 22.27% 58.043%);
+      -webkit-transform-origin: 10.125% 62.698%;
+              transform-origin: 10.125% 62.698%;
+    }
+    .tiger .poly:nth-child(121) {
+      background: #E8E9EB;
+      -webkit-clip-path: polygon(80.572% 69.792%, 80.572% 71.977%, 87.952% 76.44%, 77.374% 76.257%, 75.821% 72.31%);
+              clip-path: polygon(80.572% 69.792%, 80.572% 71.977%, 87.952% 76.44%, 77.374% 76.257%, 75.821% 72.31%);
+      -webkit-transform-origin: 87.952% 76.44%;
+              transform-origin: 87.952% 76.44%;
+    }
+    .tiger .poly:nth-child(122) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(63.598% 60.646%, 50.929% 64.782%, 46.027% 60.406%);
+              clip-path: polygon(63.598% 60.646%, 50.929% 64.782%, 46.027% 60.406%);
+      -webkit-transform-origin: 50.929% 64.782%;
+              transform-origin: 50.929% 64.782%;
+    }
+    .tiger .poly:nth-child(123) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(50.929% 64.782%, 38.998% 65.996%, 27.54% 59.545%);
+              clip-path: polygon(50.929% 64.782%, 38.998% 65.996%, 27.54% 59.545%);
+      -webkit-transform-origin: 38.998% 65.996%;
+              transform-origin: 38.998% 65.996%;
+    }
+    .tiger .poly:nth-child(124) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(22.27% 68.365%, 10.338% 77.958%, 7.145% 67.151%);
+              clip-path: polygon(22.27% 68.365%, 10.338% 77.958%, 7.145% 67.151%);
+      -webkit-transform-origin: 10.338% 77.958%;
+              transform-origin: 10.338% 77.958%;
+    }
+    .tiger .poly:nth-child(125) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(36.657% 44.802%, 31.731% 43.733%, 42.073% 35.583%);
+              clip-path: polygon(36.657% 44.802%, 31.731% 43.733%, 42.073% 35.583%);
+      -webkit-transform-origin: 31.731% 43.733%;
+              transform-origin: 31.731% 43.733%;
+    }
+    .tiger .poly:nth-child(126) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(71.978% 39.321%, 76.411% 35.106%, 75.741% 42.957%);
+              clip-path: polygon(71.978% 39.321%, 76.411% 35.106%, 75.741% 42.957%);
+      -webkit-transform-origin: 76.411% 35.106%;
+              transform-origin: 76.411% 35.106%;
+    }
+    .tiger .poly:nth-child(127) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(67.842% 40.602%, 63.598% 38.917%, 58.524% 41.103%);
+              clip-path: polygon(67.842% 40.602%, 63.598% 38.917%, 58.524% 41.103%);
+      -webkit-transform-origin: 63.598% 38.917%;
+              transform-origin: 63.598% 38.917%;
+    }
+    .tiger .poly:nth-child(128) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(76.411% 35.106%, 82.417% 30.902%, 71.978% 32.375%);
+              clip-path: polygon(76.411% 35.106%, 82.417% 30.902%, 71.978% 32.375%);
+      -webkit-transform-origin: 82.417% 30.902%;
+              transform-origin: 82.417% 30.902%;
+    }
+    .tiger .poly:nth-child(129) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(27.54% 59.545%, 22.27% 58.043%, 22.27% 68.365%);
+              clip-path: polygon(27.54% 59.545%, 22.27% 58.043%, 22.27% 68.365%);
+      -webkit-transform-origin: 22.27% 58.043%;
+              transform-origin: 22.27% 58.043%;
+    }
+    .tiger .poly:nth-child(130) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(42.521% 71.218%, 41.515% 79.905%, 31.898% 76.561%);
+              clip-path: polygon(42.521% 71.218%, 41.515% 79.905%, 31.898% 76.561%);
+      -webkit-transform-origin: 41.515% 79.905%;
+              transform-origin: 41.515% 79.905%;
+    }
+    .tiger .poly:nth-child(131) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(31.898% 76.561%, 15.873% 84.227%, 15.873% 77.599%);
+              clip-path: polygon(31.898% 76.561%, 15.873% 84.227%, 15.873% 77.599%);
+      -webkit-transform-origin: 15.873% 84.227%;
+              transform-origin: 15.873% 84.227%;
+    }
+    .tiger .poly:nth-child(132) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(77.374% 76.257%, 68.395% 83.604%, 83.247% 84.227%);
+              clip-path: polygon(77.374% 76.257%, 68.395% 83.604%, 83.247% 84.227%);
+      -webkit-transform-origin: 68.395% 83.604%;
+              transform-origin: 68.395% 83.604%;
+    }
+    .tiger .poly:nth-child(133) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(87.952% 76.44%, 83.247% 84.227%, 93.026% 78.626%, 90.535% 76.44%);
+              clip-path: polygon(87.952% 76.44%, 83.247% 84.227%, 93.026% 78.626%, 90.535% 76.44%);
+      -webkit-transform-origin: 93.026% 78.626%;
+              transform-origin: 93.026% 78.626%;
+    }
+    .tiger .poly:nth-child(134) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(83.469% 86.423%, 80.988% 94.776%, 100% 89.086%);
+              clip-path: polygon(83.469% 86.423%, 80.988% 94.776%, 100% 89.086%);
+      -webkit-transform-origin: 80.988% 94.776%;
+              transform-origin: 80.988% 94.776%;
+    }
+    .tiger .poly:nth-child(135) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(100% 89.086%, 100% 99.961%, 93.502% 95.735%);
+              clip-path: polygon(100% 89.086%, 100% 99.961%, 93.502% 95.735%);
+      -webkit-transform-origin: 100% 99.961%;
+              transform-origin: 100% 99.961%;
+    }
+    .tiger .poly:nth-child(136) {
+      background: #C9C0AD;
+      -webkit-clip-path: polygon(82.417% 30.902%, 75.741% 42.957%, 76.411% 35.106%);
+              clip-path: polygon(82.417% 30.902%, 75.741% 42.957%, 76.411% 35.106%);
+      -webkit-transform-origin: 75.741% 42.957%;
+              transform-origin: 75.741% 42.957%;
+    }
+    .tiger .poly:nth-child(137) {
+      background: #C9C0AD;
+      -webkit-clip-path: polygon(50.068% 41.103%, 59.121% 45.76%, 50.068% 44.697%);
+              clip-path: polygon(50.068% 41.103%, 59.121% 45.76%, 50.068% 44.697%);
+      -webkit-transform-origin: 59.121% 45.76%;
+              transform-origin: 59.121% 45.76%;
+    }
+    .tiger .poly:nth-child(138) {
+      background: #C9C0AD;
+      -webkit-clip-path: polygon(31.731% 43.733%, 27.915% 49.482%, 36.657% 44.802%);
+              clip-path: polygon(31.731% 43.733%, 27.915% 49.482%, 36.657% 44.802%);
+      -webkit-transform-origin: 27.915% 49.482%;
+              transform-origin: 27.915% 49.482%;
+    }
+    .tiger .poly:nth-child(139) {
+      background: #C9C0AD;
+      -webkit-clip-path: polygon(50.929% 64.782%, 42.521% 71.218%, 38.998% 65.996%);
+              clip-path: polygon(50.929% 64.782%, 42.521% 71.218%, 38.998% 65.996%);
+      -webkit-transform-origin: 42.521% 71.218%;
+              transform-origin: 42.521% 71.218%;
+    }
+    .tiger .poly:nth-child(140) {
+      background: #C9C0AD;
+      -webkit-clip-path: polygon(93.026% 78.626%, 98.147% 80.309%, 97.655% 82.65%, 83.247% 84.227%);
+              clip-path: polygon(93.026% 78.626%, 98.147% 80.309%, 97.655% 82.65%, 83.247% 84.227%);
+      -webkit-transform-origin: 98.147% 80.309%;
+              transform-origin: 98.147% 80.309%;
+    }
+    .tiger .poly:nth-child(141) {
+      background: #C9C0AD;
+      -webkit-clip-path: polygon(100% 89.086%, 90.286% 99.027%, 85.633% 93.386%);
+              clip-path: polygon(100% 89.086%, 90.286% 99.027%, 85.633% 93.386%);
+      -webkit-transform-origin: 90.286% 99.027%;
+              transform-origin: 90.286% 99.027%;
+    }
+    .tiger .poly:nth-child(142) {
+      background: #C9C0AD;
+      -webkit-clip-path: polygon(83.469% 86.423%, 80.988% 94.776%, 72.91% 89.086%);
+              clip-path: polygon(83.469% 86.423%, 80.988% 94.776%, 72.91% 89.086%);
+      -webkit-transform-origin: 80.988% 94.776%;
+              transform-origin: 80.988% 94.776%;
+    }
+    .tiger .poly:nth-child(143) {
+      background: #C9C0AD;
+      -webkit-clip-path: polygon(52.906% 73.676%, 61.089% 80.057%, 41.515% 79.905%);
+              clip-path: polygon(52.906% 73.676%, 61.089% 80.057%, 41.515% 79.905%);
+      -webkit-transform-origin: 61.089% 80.057%;
+              transform-origin: 61.089% 80.057%;
+    }
+    .tiger .poly:nth-child(144) {
+      background: #C9C0AD;
+      -webkit-clip-path: polygon(31.898% 76.561%, 28.493% 84.149%, 41.515% 79.905%);
+              clip-path: polygon(31.898% 76.561%, 28.493% 84.149%, 41.515% 79.905%);
+      -webkit-transform-origin: 28.493% 84.149%;
+              transform-origin: 28.493% 84.149%;
+    }
+    .tiger .poly:nth-child(145) {
+      background: #D3C8C2;
+      -webkit-clip-path: polygon(77.374% 76.257%, 68.395% 83.604%, 61.089% 80.057%);
+              clip-path: polygon(77.374% 76.257%, 68.395% 83.604%, 61.089% 80.057%);
+      -webkit-transform-origin: 68.395% 83.604%;
+              transform-origin: 68.395% 83.604%;
+    }
+    .tiger .poly:nth-child(146) {
+      background: #D3C8C2;
+      -webkit-clip-path: polygon(77.374% 76.257%, 87.952% 76.44%, 83.247% 84.227%);
+              clip-path: polygon(77.374% 76.257%, 87.952% 76.44%, 83.247% 84.227%);
+      -webkit-transform-origin: 87.952% 76.44%;
+              transform-origin: 87.952% 76.44%;
+    }
+    .tiger .poly:nth-child(147) {
+      background: #AFA49F;
+      -webkit-clip-path: polygon(83.469% 86.423%, 100% 83.544%, 100% 89.086%);
+              clip-path: polygon(83.469% 86.423%, 100% 83.544%, 100% 89.086%);
+      -webkit-transform-origin: 100% 83.544%;
+              transform-origin: 100% 83.544%;
+    }
+    .tiger .poly:nth-child(148) {
+      background: #AFA49F;
+      -webkit-clip-path: polygon(83.469% 86.423%, 83.247% 84.227%, 63.783% 91.387%);
+              clip-path: polygon(83.469% 86.423%, 83.247% 84.227%, 63.783% 91.387%);
+      -webkit-transform-origin: 83.247% 84.227%;
+              transform-origin: 83.247% 84.227%;
+    }
+    .tiger .poly:nth-child(149) {
+      background: #AFA49F;
+      -webkit-clip-path: polygon(61.089% 80.057%, 38.653% 87.465%, 41.515% 79.905%);
+              clip-path: polygon(61.089% 80.057%, 38.653% 87.465%, 41.515% 79.905%);
+      -webkit-transform-origin: 38.653% 87.465%;
+              transform-origin: 38.653% 87.465%;
+    }
+    .tiger .poly:nth-child(150) {
+      background: #AFA49F;
+      -webkit-clip-path: polygon(31.898% 76.561%, 29.799% 81.24%, 15.873% 84.227%);
+              clip-path: polygon(31.898% 76.561%, 29.799% 81.24%, 15.873% 84.227%);
+      -webkit-transform-origin: 29.799% 81.24%;
+              transform-origin: 29.799% 81.24%;
+    }
+    .tiger .poly:nth-child(151) {
+      background: #8C7C70;
+      -webkit-clip-path: polygon(83.469% 86.423%, 83.247% 84.227%, 100% 83.544%);
+              clip-path: polygon(83.469% 86.423%, 83.247% 84.227%, 100% 83.544%);
+      -webkit-transform-origin: 83.247% 84.227%;
+              transform-origin: 83.247% 84.227%;
+    }
+    .tiger .poly:nth-child(152) {
+      background: #8C7C70;
+      -webkit-clip-path: polygon(74.176% 87.564%, 68.395% 83.604%, 63.783% 91.387%);
+              clip-path: polygon(74.176% 87.564%, 68.395% 83.604%, 63.783% 91.387%);
+      -webkit-transform-origin: 68.395% 83.604%;
+              transform-origin: 68.395% 83.604%;
+    }
+    .tiger .poly:nth-child(153) {
+      background: #8C7C70;
+      -webkit-clip-path: polygon(61.089% 80.057%, 62.575% 86.315%, 38.653% 87.465%);
+              clip-path: polygon(61.089% 80.057%, 62.575% 86.315%, 38.653% 87.465%);
+      -webkit-transform-origin: 62.575% 86.315%;
+              transform-origin: 62.575% 86.315%;
+    }
+    .tiger .poly:nth-child(154) {
+      background: #8C7C70;
+      -webkit-clip-path: polygon(37.794% 25.415%, 28.746% 25.487%, 32.904% 28.599%);
+              clip-path: polygon(37.794% 25.415%, 28.746% 25.487%, 32.904% 28.599%);
+      -webkit-transform-origin: 28.746% 25.487%;
+              transform-origin: 28.746% 25.487%;
+    }
+    .tiger .poly:nth-child(155) {
+      background: #8C7C70;
+      -webkit-clip-path: polygon(32.971% 21.673%, 14.275% 15.359%, 25.591% 9.53%);
+              clip-path: polygon(32.971% 21.673%, 14.275% 15.359%, 25.591% 9.53%);
+      -webkit-transform-origin: 14.275% 15.359%;
+              transform-origin: 14.275% 15.359%;
+    }
+    .tiger .poly:nth-child(156) {
+      background: #8C7C70;
+      -webkit-clip-path: polygon(25.591% 9.53%, 31.149% 0.038%, 38.885% 12.156%);
+              clip-path: polygon(25.591% 9.53%, 31.149% 0.038%, 38.885% 12.156%);
+      -webkit-transform-origin: 31.149% 0%;
+              transform-origin: 31.149% 0%;
+    }
+    .tiger .poly:nth-child(157) {
+      background: #8C7C70;
+      -webkit-clip-path: polygon(31.149% 0.038%, 50.068% 4.734%, 40.78% 1.091%);
+              clip-path: polygon(31.149% 0.038%, 50.068% 4.734%, 40.78% 1.091%);
+      -webkit-transform-origin: 50.068% 4.734%;
+              transform-origin: 50.068% 4.734%;
+    }
+    .tiger .poly:nth-child(158) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(28.128% 31.707%, 11.136% 38.917%, 15.811% 39.682%);
+              clip-path: polygon(28.128% 31.707%, 11.136% 38.917%, 15.811% 39.682%);
+      -webkit-transform-origin: 11.136% 38.917%;
+              transform-origin: 11.136% 38.917%;
+    }
+    .tiger .poly:nth-child(159) {
+      background: #B5AC6D;
+      -webkit-clip-path: polygon(68.395% 83.604%, 61.089% 80.057%, 63.783% 91.387%);
+              clip-path: polygon(68.395% 83.604%, 61.089% 80.057%, 63.783% 91.387%);
+      -webkit-transform-origin: 61.089% 80.057%;
+              transform-origin: 61.089% 80.057%;
+    }
+    .tiger .poly:nth-child(160) {
+      background: #777FA0;
+      -webkit-clip-path: polygon(58.524% 34.363%, 63.598% 38.917%, 71.978% 39.321%);
+              clip-path: polygon(58.524% 34.363%, 63.598% 38.917%, 71.978% 39.321%);
+      -webkit-transform-origin: 63.598% 38.917%;
+              transform-origin: 63.598% 38.917%;
+    }
+    .tiger .poly:nth-child(161) {
+      background: #777FA0;
+      -webkit-clip-path: polygon(71.978% 32.375%, 71.978% 39.321%, 66.997% 34.8%);
+              clip-path: polygon(71.978% 32.375%, 71.978% 39.321%, 66.997% 34.8%);
+      -webkit-transform-origin: 71.978% 39.321%;
+              transform-origin: 71.978% 39.321%;
+    }
+    .tiger .poly:nth-child(162) {
+      background: #777FA0;
+      -webkit-clip-path: polygon(82.417% 30.902%, 78.197% 29.348%, 71.978% 32.375%);
+              clip-path: polygon(82.417% 30.902%, 78.197% 29.348%, 71.978% 32.375%);
+      -webkit-transform-origin: 78.197% 29.348%;
+              transform-origin: 78.197% 29.348%;
+    }
+    .tiger .poly:nth-child(163) {
+      background: #777FA0;
+      -webkit-clip-path: polygon(32.971% 21.673%, 37.794% 25.415%, 28.746% 25.487%);
+              clip-path: polygon(32.971% 21.673%, 37.794% 25.415%, 28.746% 25.487%);
+      -webkit-transform-origin: 37.794% 25.415%;
+              transform-origin: 37.794% 25.415%;
+    }
+    .tiger .poly:nth-child(164) {
+      background: #777FA0;
+      -webkit-clip-path: polygon(38.885% 12.156%, 48.783% 22.767%, 38.885% 20.116%);
+              clip-path: polygon(38.885% 12.156%, 48.783% 22.767%, 38.885% 20.116%);
+      -webkit-transform-origin: 48.783% 22.767%;
+              transform-origin: 48.783% 22.767%;
+    }
+    .tiger .poly:nth-child(165) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(62.768% 42.767%, 69.133% 48.972%, 59.121% 45.76%);
+              clip-path: polygon(62.768% 42.767%, 69.133% 48.972%, 59.121% 45.76%);
+      -webkit-transform-origin: 69.133% 48.972%;
+              transform-origin: 69.133% 48.972%;
+    }
+    .tiger .poly:nth-child(166) {
+      background: #AFA49F;
+      -webkit-clip-path: polygon(69.133% 48.972%, 75.926% 47.677%, 67.74% 47.615%);
+              clip-path: polygon(69.133% 48.972%, 75.926% 47.677%, 67.74% 47.615%);
+      -webkit-transform-origin: 75.926% 47.677%;
+              transform-origin: 75.926% 47.677%;
+    }
+    .tiger .poly:nth-child(167) {
+      background: #AFA49F;
+      -webkit-clip-path: polygon(75.926% 47.677%, 78.197% 50.246%, 74.668% 51.606%);
+              clip-path: polygon(75.926% 47.677%, 78.197% 50.246%, 74.668% 51.606%);
+      -webkit-transform-origin: 78.197% 50.246%;
+              transform-origin: 78.197% 50.246%;
+    }
+    .tiger .poly:nth-child(168) {
+      background: #EAD4B5;
+      -webkit-clip-path: polygon(71.978% 39.321%, 63.598% 38.917%, 67.842% 40.602%);
+              clip-path: polygon(71.978% 39.321%, 63.598% 38.917%, 67.842% 40.602%);
+      -webkit-transform-origin: 63.598% 38.917%;
+              transform-origin: 63.598% 38.917%;
+    }
+    .tiger .poly:nth-child(169) {
+      background: #48302C;
+      -webkit-clip-path: polygon(73.66% 42.051%, 67.842% 40.602%, 58.524% 41.103%, 62.768% 42.767%, 75.716% 47.599%, 78.197% 50.246%, 83.624% 48.155%, 75.453% 42.767%);
+              clip-path: polygon(73.66% 42.051%, 67.842% 40.602%, 58.524% 41.103%, 62.768% 42.767%, 75.716% 47.599%, 78.197% 50.246%, 83.624% 48.155%, 75.453% 42.767%);
+      -webkit-transform-origin: 75.716% 47.599%;
+              transform-origin: 75.716% 47.599%;
+    }
+    .tiger .poly:nth-child(170) {
+      background: #48302C;
+      -webkit-clip-path: ellipse(8.431% 3.312% at 69.799% 44.779%);
+              clip-path: ellipse(8.431% 3.312% at 69.799% 44.779%);
+      -webkit-transform-origin: 69.799% 44.779%;
+              transform-origin: 69.799% 44.779%;
+    }
+    .tiger .poly:nth-child(171) {
+      background: #84701E;
+      -webkit-clip-path: ellipse(5.968% 2.67% at 70.665% 44.361%);
+              clip-path: ellipse(5.968% 2.67% at 70.665% 44.361%);
+      -webkit-transform-origin: 70.665% 44.361%;
+              transform-origin: 70.665% 44.361%;
+    }
+    .tiger .poly:nth-child(171) .poly {
+      top: 1.6%;
+      background: #D1C76D;
+      -webkit-clip-path: inherit;
+              clip-path: inherit;
+      -webkit-transform-origin: inherit;
+              transform-origin: inherit;
+      -webkit-animation: none;
+              animation: none;
+    }
+    .tiger .poly:nth-child(172) {
+      background: #564602;
+      -webkit-clip-path: ellipse(1.681% 0.965% at 71.978% 43.732%);
+              clip-path: ellipse(1.681% 0.965% at 71.978% 43.732%);
+      -webkit-transform-origin: 71.978% 43.732%;
+              transform-origin: 71.978% 43.732%;
+    }
+    .tiger .poly:nth-child(173) {
+      background: #FF8D43;
+      -webkit-clip-path: polygon(94.837% 34.302%, 88.478% 32.723%, 93.856% 41.103%);
+              clip-path: polygon(94.837% 34.302%, 88.478% 32.723%, 93.856% 41.103%);
+      -webkit-transform-origin: 88.478% 32.723%;
+              transform-origin: 88.478% 32.723%;
+    }
+    .tiger .poly:nth-child(174) {
+      background: #C9C0AD;
+      -webkit-clip-path: polygon(87.829% 71.583%, 100% 69.024%, 95.578% 73.871%);
+              clip-path: polygon(87.829% 71.583%, 100% 69.024%, 95.578% 73.871%);
+      -webkit-transform-origin: 100% 69.024%;
+              transform-origin: 100% 69.024%;
+    }
+    .tiger .poly:nth-child(175) {
+      background: #AFA49F;
+      -webkit-clip-path: polygon(95.578% 73.871%, 100% 69.024%, 100% 73.871%);
+              clip-path: polygon(95.578% 73.871%, 100% 69.024%, 100% 73.871%);
+      -webkit-transform-origin: 100% 69.024%;
+              transform-origin: 100% 69.024%;
+    }
+    .tiger .poly:nth-child(176) {
+      background: #F9B26B;
+      -webkit-clip-path: polygon(100% 69.024%, 91.15% 64.357%, 87.829% 71.583%);
+              clip-path: polygon(100% 69.024%, 91.15% 64.357%, 87.829% 71.583%);
+      -webkit-transform-origin: 91.15% 64.357%;
+              transform-origin: 91.15% 64.357%;
+    }
+    .tiger .poly:nth-child(177) {
+      background: #E2AFA3;
+      -webkit-clip-path: polygon(91.15% 64.357%, 100% 57.193%, 100% 69.024%);
+              clip-path: polygon(91.15% 64.357%, 100% 57.193%, 100% 69.024%);
+      -webkit-transform-origin: 100% 57.193%;
+              transform-origin: 100% 57.193%;
+    }
+    .tiger .poly:nth-child(178) {
+      background: #D69385;
+      -webkit-clip-path: polygon(91.15% 64.357%, 91.15% 50.669%, 100% 57.193%);
+              clip-path: polygon(91.15% 64.357%, 91.15% 50.669%, 100% 57.193%);
+      -webkit-transform-origin: 91.15% 50.669%;
+              transform-origin: 91.15% 50.669%;
+    }
+    .tiger .poly:nth-child(179) {
+      background: #D69385;
+      -webkit-clip-path: polygon(91.15% 50.669%, 85.633% 60.421%, 82.417% 55.917%);
+              clip-path: polygon(91.15% 50.669%, 85.633% 60.421%, 82.417% 55.917%);
+      -webkit-transform-origin: 85.633% 60.421%;
+              transform-origin: 85.633% 60.421%;
+    }
+    .tiger .poly:nth-child(180) {
+      background: #C98777;
+      -webkit-clip-path: polygon(91.15% 50.669%, 100% 47.599%, 100% 53.722%);
+              clip-path: polygon(91.15% 50.669%, 100% 47.599%, 100% 53.722%);
+      -webkit-transform-origin: 100% 47.599%;
+              transform-origin: 100% 47.599%;
+    }
+    .tiger .poly:nth-child(181) {
+      background: #C69849;
+      -webkit-clip-path: polygon(91.15% 50.669%, 93.856% 41.103%, 100% 47.599%);
+              clip-path: polygon(91.15% 50.669%, 93.856% 41.103%, 100% 47.599%);
+      -webkit-transform-origin: 93.856% 41.103%;
+              transform-origin: 93.856% 41.103%;
+    }
+    .tiger .poly:nth-child(182) {
+      background: #E2AFA3;
+      -webkit-clip-path: polygon(91.15% 50.669%, 100% 57.193%, 100% 53.722%);
+              clip-path: polygon(91.15% 50.669%, 100% 57.193%, 100% 53.722%);
+      -webkit-transform-origin: 100% 57.193%;
+              transform-origin: 100% 57.193%;
+    }
+    .tiger .poly:nth-child(183) {
+      background: #F9B26B;
+      -webkit-clip-path: polygon(69.093% 13.69%, 63.057% 9.435%, 58.524% 15.602%);
+              clip-path: polygon(69.093% 13.69%, 63.057% 9.435%, 58.524% 15.602%);
+      -webkit-transform-origin: 63.057% 9.435%;
+              transform-origin: 63.057% 9.435%;
+    }
+    .tiger .poly:nth-child(184) {
+      background: #FFA748;
+      -webkit-clip-path: polygon(69.093% 13.69%, 80.326% 9.237%, 63.057% 9.435%);
+              clip-path: polygon(69.093% 13.69%, 80.326% 9.237%, 63.057% 9.435%);
+      -webkit-transform-origin: 80.326% 9.237%;
+              transform-origin: 80.326% 9.237%;
+    }
+    .tiger .poly:nth-child(185) {
+      background: #FFA748;
+      -webkit-clip-path: polygon(80.326% 9.237%, 100% 11.716%, 100% 9.237%);
+              clip-path: polygon(80.326% 9.237%, 100% 11.716%, 100% 9.237%);
+      -webkit-transform-origin: 100% 11.716%;
+              transform-origin: 100% 11.716%;
+    }
+    .tiger .poly:nth-child(186) {
+      background: #F9B26B;
+      -webkit-clip-path: polygon(69.093% 13.69%, 89.05% 10.337%, 80.326% 9.237%);
+              clip-path: polygon(69.093% 13.69%, 89.05% 10.337%, 80.326% 9.237%);
+      -webkit-transform-origin: 89.05% 10.337%;
+              transform-origin: 89.05% 10.337%;
+    }
+    .tiger .poly:nth-child(187) {
+      background: #FFD385;
+      -webkit-clip-path: polygon(80.326% 9.237%, 89.884% 6.54%, 63.057% 9.435%);
+              clip-path: polygon(80.326% 9.237%, 89.884% 6.54%, 63.057% 9.435%);
+      -webkit-transform-origin: 89.884% 6.54%;
+              transform-origin: 89.884% 6.54%;
+    }
+    .tiger .poly:nth-child(188) {
+      background: #FFD385;
+      -webkit-clip-path: polygon(89.884% 6.54%, 100% 5.448%, 95.59% 8.061%);
+              clip-path: polygon(89.884% 6.54%, 100% 5.448%, 95.59% 8.061%);
+      -webkit-transform-origin: 100% 5.448%;
+              transform-origin: 100% 5.448%;
+    }
+    .tiger .poly:nth-child(189) {
+      background: #C07E48;
+      -webkit-clip-path: polygon(100% 5.448%, 78.197% 4.127%, 100% 2.308%);
+              clip-path: polygon(100% 5.448%, 78.197% 4.127%, 100% 2.308%);
+      -webkit-transform-origin: 78.197% 4.127%;
+              transform-origin: 78.197% 4.127%;
+    }
+    .tiger .poly:nth-child(190) {
+      background: #937057;
+      -webkit-clip-path: polygon(100% 5.448%, 63.057% 9.435%, 78.197% 4.127%);
+              clip-path: polygon(100% 5.448%, 63.057% 9.435%, 78.197% 4.127%);
+      -webkit-transform-origin: 63.057% 9.435%;
+              transform-origin: 63.057% 9.435%;
+    }
+    .tiger .poly:nth-child(191) {
+      background: #E8E9EB;
+      -webkit-clip-path: polygon(68.887% 18.698%, 69.093% 13.69%, 84.322% 14.749%);
+              clip-path: polygon(68.887% 18.698%, 69.093% 13.69%, 84.322% 14.749%);
+      -webkit-transform-origin: 69.093% 13.69%;
+              transform-origin: 69.093% 13.69%;
+    }
+    .tiger .poly:nth-child(192) {
+      background: #FFD385;
+      -webkit-clip-path: polygon(54.296% 24.097%, 41.959% 29.87%, 37.794% 25.415%);
+              clip-path: polygon(54.296% 24.097%, 41.959% 29.87%, 37.794% 25.415%);
+      -webkit-transform-origin: 41.959% 29.87%;
+              transform-origin: 41.959% 29.87%;
+    }
+    .tiger .poly:nth-child(193) {
+      background: #FFD385;
+      -webkit-clip-path: polygon(54.296% 24.097%, 58.524% 15.602%, 48.783% 22.767%);
+              clip-path: polygon(54.296% 24.097%, 58.524% 15.602%, 48.783% 22.767%);
+      -webkit-transform-origin: 58.524% 15.602%;
+              transform-origin: 58.524% 15.602%;
+    }
+    .tiger .poly:nth-child(194) {
+      background: #EADDCE;
+      -webkit-clip-path: polygon(69.093% 13.69%, 54.296% 24.097%, 58.524% 15.602%);
+              clip-path: polygon(69.093% 13.69%, 54.296% 24.097%, 58.524% 15.602%);
+      -webkit-transform-origin: 54.296% 24.097%;
+              transform-origin: 54.296% 24.097%;
+    }
+    .tiger .poly:nth-child(195) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(68.887% 18.698%, 64.961% 16.596%, 69.093% 13.69%);
+              clip-path: polygon(68.887% 18.698%, 64.961% 16.596%, 69.093% 13.69%);
+      -webkit-transform-origin: 64.961% 16.596%;
+              transform-origin: 64.961% 16.596%;
+    }
+    .tiger .poly:nth-child(196) {
+      background: #FEF8CB;
+      -webkit-clip-path: polygon(68.887% 18.698%, 61.973% 18.698%, 54.296% 24.097%);
+              clip-path: polygon(68.887% 18.698%, 61.973% 18.698%, 54.296% 24.097%);
+      -webkit-transform-origin: 61.973% 18.698%;
+              transform-origin: 61.973% 18.698%;
+    }
+    .tiger .poly:nth-child(197) {
+      background: #84701E;
+      -webkit-clip-path: polygon(68.887% 18.698%, 64.961% 16.596%, 61.973% 18.698%);
+              clip-path: polygon(68.887% 18.698%, 64.961% 16.596%, 61.973% 18.698%);
+      -webkit-transform-origin: 64.961% 16.596%;
+              transform-origin: 64.961% 16.596%;
+    }
+    .tiger .poly:nth-child(198) {
+      background: #FFD385;
+      -webkit-clip-path: polygon(58.524% 15.602%, 50.068% 4.734%, 63.057% 9.435%);
+              clip-path: polygon(58.524% 15.602%, 50.068% 4.734%, 63.057% 9.435%);
+      -webkit-transform-origin: 50.068% 4.734%;
+              transform-origin: 50.068% 4.734%;
+    }
+    .tiger .poly:nth-child(199) {
+      background: #D69385;
+      -webkit-clip-path: polygon(25.591% 9.53%, 17.969% 3.398%, 31.149% 0.038%);
+              clip-path: polygon(25.591% 9.53%, 17.969% 3.398%, 31.149% 0.038%);
+      -webkit-transform-origin: 17.969% 3.398%;
+              transform-origin: 17.969% 3.398%;
+    }
+    .tiger .poly:nth-child(200) {
+      background: #C98777;
+      -webkit-clip-path: polygon(25.591% 9.53%, 17.969% 3.398%, 14.275% 15.359%);
+              clip-path: polygon(25.591% 9.53%, 17.969% 3.398%, 14.275% 15.359%);
+      -webkit-transform-origin: 17.969% 3.398%;
+              transform-origin: 17.969% 3.398%;
+    }
+    .tiger .poly:nth-child(201) {
+      background: #EAD4B5;
+      -webkit-clip-path: polygon(50.068% 4.734%, 38.885% 12.156%, 31.149% 0.038%);
+              clip-path: polygon(50.068% 4.734%, 38.885% 12.156%, 31.149% 0.038%);
+      -webkit-transform-origin: 38.885% 12.156%;
+              transform-origin: 38.885% 12.156%;
+    }
+    .tiger .poly:nth-child(202) {
+      background: #EADDCE;
+      -webkit-clip-path: polygon(50.068% 4.734%, 58.524% 15.602%, 38.885% 12.156%);
+              clip-path: polygon(50.068% 4.734%, 58.524% 15.602%, 38.885% 12.156%);
+      -webkit-transform-origin: 58.524% 15.602%;
+              transform-origin: 58.524% 15.602%;
+    }
+    .tiger .poly:nth-child(203) {
+      background: #BBBCAC;
+      -webkit-clip-path: polygon(58.524% 15.602%, 48.783% 22.767%, 38.885% 12.156%);
+              clip-path: polygon(58.524% 15.602%, 48.783% 22.767%, 38.885% 12.156%);
+      -webkit-transform-origin: 48.783% 22.767%;
+              transform-origin: 48.783% 22.767%;
+    }
+    </style>
+</head>
+<div class="module">
+
+    <div style="color: white;text-align:center;
+  background: repeating-linear-gradient(
+    45deg,
+    #de8e16,
+    #de8e16 10px,
+    #030303 10px,
+    #030303 20px
+  );">
+        <h1>Animation</h1>
+    </div>
+</div>
+<div id="hey">
+    <div class='tiger'>
+        <div class='half'>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'>
+                <i class='poly'></i>
+            </i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+        </div>
+        <div class='half'>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'>
+                <i class='poly'></i>
+            </i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+            <i class='poly'></i>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

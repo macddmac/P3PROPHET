@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="clearblock" style="color:white ">
+    <form method="post" style="display:inline-grid; width:70%">
+        <h1 class="title"><strong>Missing Package?</strong></h1>
+        <p class="tunesSub">Please enter your order number and Email, then we will get back to you!</p>
+        <label for="response">Email</label>
+        <input type="text" id="response" name="response" required placeholder="Email:" autofocus>
+        <label for="order">Order Number</label>
+        <input type="order" id="order" name="order" placeholder="Order Number:" >
+    </form>
+</div>
+
+{% endblock %}

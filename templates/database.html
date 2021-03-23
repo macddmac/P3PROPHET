@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<table style="width: 100%; height: 100%; background-color: #ffffff;" border="1">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in data %}
+        <tr>
+            <td>{{ user.first_name }}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+</table>
+{% endblock %}
+
