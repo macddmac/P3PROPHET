@@ -82,9 +82,9 @@ def index():
 def home_route():
     return render_template("home.html")
 
-@app.route('/index')
+@app.route('/blank')
 def index_route():
-    return render_template("index.html")
+    return render_template("blank.html")
 
 @app.route('/testimonial')
 def testimonial_route():
@@ -96,23 +96,6 @@ def testimonial_route():
 def logout():
     logout_user()
     return redirect("/")
-
-@app.route('/customerservice', methods=['POST', 'GET'])
-def customer():
-    if request.method == "POST":
-        if request.form.get("response") == "1":
-            return render_template("contactnumber.html")
-        elif request.form.get("response") == "2":
-            return render_template("missingpackage.html")
-        elif request.form.get("response") == "3":
-            return render_template("termsconditions.html")
-        elif request.form.get("response") == "4":
-            return render_template("animation.html")
-        else:
-            return error("Please pick an option from 1-4.", 401)
-    return render_template("customerservice.html")
-
-
 
 @app.route('/secret' , methods=["GET", "POST"])
 def secret_route():
