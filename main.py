@@ -71,6 +71,12 @@ class LoginForm(FlaskForm):
 def load_user(id):
     return User.query.get(int(id))
 
+@app.route('/api')
+def idk():
+    response = requests.get('http://aws.random.cat/meow')
+    image = response.json()['file']
+    return render_template("api.html", image=image)
+
 @app.route('/database')
 @login_required
 def index():
@@ -82,20 +88,42 @@ def index():
 def home_route():
     return render_template("home.html")
 
-@app.route('/blank')
+@app.route('/index')
 def index_route():
-    return render_template("blank.html")
+    return render_template("index.html")
 
 @app.route('/testimonial')
 def testimonial_route():
     return render_template("testmonial.html")
 # connects /hello path of server to render hello.html
 
+@app.route('/coupon')
+@login_required
+def coupon():
+    return render_template("coupon.html")
+
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect("/")
+
+@app.route('/customerservice', methods=['POST', 'GET'])
+def customer():
+    if request.method == "POST":
+        if request.form.get("response") == "1":
+            return render_template("contactnumber.html")
+        elif request.form.get("response") == "2":
+            return render_template("missingpackage.html")
+        elif request.form.get("response") == "3":
+            return render_template("termsconditions.html")
+        elif request.form.get("response") == "4":
+            return render_template("animation.html")
+        else:
+            return error("Please pick an option from 1-4.", 401)
+    return render_template("customerservice.html")
+
+
 
 @app.route('/secret' , methods=["GET", "POST"])
 def secret_route():
