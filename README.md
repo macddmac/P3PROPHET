@@ -13,7 +13,7 @@ Rohan, Sam, Shekar, Jason, Rivan
 # What is our project?
 
 # What will the website feature?
-- 
+- Certain endangered species and the cause of their endangerment
 
 ---------------------------
 
