@@ -97,6 +97,10 @@ def testimonial_route():
     return render_template("testmonial.html")
 # connects /hello path of server to render hello.html
 
+@app.route('/minilabs')
+def minilabs_route():
+    return render_template("minilabs.html")
+
 @app.route('/coupon')
 @login_required
 def coupon():
