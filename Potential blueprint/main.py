@@ -3,7 +3,7 @@ from second import second
 
 app = Flask(__name__)
 app.register_blueprint(second, url_prefix="/admin")
-
+# When running add /admin after url
 
 @app.route("/")
 def test():
