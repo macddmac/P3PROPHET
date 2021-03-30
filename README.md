@@ -1,5 +1,5 @@
 # P3 PROPEHTS
-# ![image] (still browsing for an image)
+# ![banner](https://user-images.githubusercontent.com/72889343/112936312-6f545480-90da-11eb-93b4-dcece6a67666.JPG)
 This is the repository for team "PROPHETS" in Mr. Mortensens Period 3 Data Structures class.
 
 # Links
