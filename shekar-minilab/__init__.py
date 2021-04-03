@@ -8,54 +8,51 @@ def index():
     return render_template("shekarminilab.html")
 
 # defining classes
-class place:
+class leaderboard:
     def starting(user, place=0, points=0):
         user.place = place
         user.points = points
 
-    # getter for weight
+    def Shekar(user):
+        user = "Shekar"
+
+    # getter for place
     # set variable
     def get_place(user):
         return user.place
 
-    # getter for height
+    # getter for points
     # set variable
     def get_points(user):
-        return user.set_points
+        return user.points
 
-    # getter for weight
-    # set variable
-    def set_weight(self, x):
-        self._weight = x
+    # setter for variable place
+    def set_place(user, x):
+        user._place = x
 
-    #setter for height
-    def set_height(self, x):
-        self._height = x
-
+    # setter for variable points
+    def set_points(user, x):
+        user._points = x
 
     @property
-    def weight(self):
-        return self._weight
-
+    def place(user):
+        return user._place
     @property
-    def height(self):
-        return self._height
+    def points(user):
+        return user._points
 
-samuel = Caloric()
+Shekar = leaderboard()
 
-# setting the weight with setter from before
-samuel.set_weight(160)
+# setting the place with setter from before
+Shekar.set_place(2)
+# setting the points using setter from before
+Shekar.set_points(55)
 
-# setting the height using setter from before
-samuel.set_height(71)
-
-# getting weight with getter
-print(samuel.get_weight())
-
-
-# getting height with getter
-print(samuel.get_height())
-
-
-print(samuel.weight)
-print(samuel.height)
+# printing full leaderboard with getters
+print(Shekar.get_place())
+print(Shekar.get_points())
+print(" ")
+print("place: ")
+print(Shekar.place)
+print("place: ")
+print(Shekar.points)
