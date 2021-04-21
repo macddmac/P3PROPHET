@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Lab</title>
+</head>
+<body>
+<div class="jumbotron text-center row">
+    <div>
+        <h3>How many leg excersises do you want to do?</h3>
+        <form id="fibForm" action="" method="POST" >
+            <input name="series" id="series" type="number" min="1" max="13" >
+            <button class="btn  my-2 my-sm-0 text-white bg-danger" type="submit"> Get Excersises</button>
+
+        </form>
+    </div>
+
+    <div id="myDiv" class="col-md-6">
+        <h3>Here are {{Workouts.series}} Leg Excersises:</h3>
+        <!-- Number, List table
+        <table class="mx-auto">
+            <tr>
+                <th scope="col">{{Workouts.series}} Workouts: </th>
+            </tr>
+        </table> -->
+        <div id='prova' style='display:none'>{{Workouts.list}}</div>
+
+        <script>
+                window.onload = function () {
+                    setTimeout(appeardiv,2000);
+                }
+                function appeardiv() {
+                    document.getElementById('prova').style.display= "block";
+                }
+            </script>
+
+
+    </div>
+
+
+</div>
+</div>
+</div>
+</body>
+</html>

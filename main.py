@@ -12,6 +12,11 @@ import sqlalchemy
 import requests
 import os
 
+from shekarminilab import shekarminilab_bp
+app = Flask(__name__)
+app.register_blueprint(shekarminilab_bp, url_prefix='/shekarminilab')
+
+
 # creating a Flask instance
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
@@ -83,6 +88,7 @@ def index():
     data = User.query.all()
     return render_template('database.html', data=data)
 
+
 # Create a sign up page
 @app.route('/')
 def home_route():
@@ -91,6 +97,10 @@ def home_route():
 @app.route('/index')
 def index_route():
     return render_template("index.html")
+
+@app.route('/math')
+def math_route():
+    return render_template("math.html")
 
 @app.route('/testimonial')
 def testimonial_route():
