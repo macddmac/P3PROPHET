@@ -1,4 +1,4 @@
-from flask import Flask, flash, jsonify, redirect, url_for, render_template, request, session, current_app, g
+from flask import Flask, flash, jsonify, redirect, url_for, render_template, Response, request, session, current_app, g
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
 from flask_wtf import FlaskForm
@@ -11,10 +11,19 @@ from werkzeug.urls import url_parse
 import sqlalchemy
 import requests
 import os
+import requests as r
+import json as j
+import time
+
+from urllib.request import Request, urlopen
+
+
 
 from shekarminilab import shekarminilab_bp
 app = Flask(__name__)
 app.register_blueprint(shekarminilab_bp, url_prefix='/shekarminilab')
+
+
 
 
 # creating a Flask instance
@@ -92,7 +101,16 @@ def index():
 # Create a sign up page
 @app.route('/')
 def home_route():
-    return render_template("home.html")
+    #Gets the api data from web
+    text = "https://cat-fact.herokuapp.com/facts/random"
+    data = requests.get(text).json()["text"]
+    return render_template("home.html", data=data)
+
+    #Gets the api data from web
+    #x = r.get("https://uselessfacts.jsph.pl/random.json?language=en")
+    #data = j.loads(x.content) #Fetch rest api data
+    #fact = data.get("text") #Fetch rest api data
+    #return render_template("home.html", fact=fact) #Fetch rest api data
 
 @app.route('/index')
 def index_route():
@@ -116,6 +134,13 @@ def minilabs_route():
 def coupon():
     return render_template("coupon.html")
 
+@app.route('/contactnumber')
+@login_required
+def contactnumber():
+    text = "https://cat-fact.herokuapp.com/facts/random"
+    data = requests.get(text).json()["text"]
+    return render_template("contactnumber.html", data=data)
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -128,7 +153,7 @@ def customer():
         if request.form.get("response") == "1":
             return render_template("contactnumber.html")
         elif request.form.get("response") == "2":
-            return render_template("missingpackage.html")
+            return render_template("math.html")
         elif request.form.get("response") == "3":
             return render_template("termsconditions.html")
         elif request.form.get("response") == "4":
@@ -136,8 +161,6 @@ def customer():
         else:
             return error("Please pick an option from 1-4.", 401)
     return render_template("customerservice.html")
-
-
 
 @app.route('/secret' , methods=["GET", "POST"])
 def secret_route():

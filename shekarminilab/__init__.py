@@ -3,7 +3,7 @@ from flask import request
 from shekarminilab.minilab import Workouts
 
 shekarminilab_bp = Blueprint('shekarminilab', __name__,
-                            template_folder='templates',)
+                            template_folder='templates')
 
 @shekarminilab_bp.route('/', methods=['GET', 'POST'])
 def index():
