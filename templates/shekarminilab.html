@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+{% block content %}
+<script>
+    function success() {
+        if(document.getElementById("textsend").value==="") {
+            document.getElementById('button').disabled = true;
+        } else {
+            document.getElementById('button').disabled = false;
+        }
+    }
+</script>
+<div class="container">
+
+  <div class="center-block">
+    <h1 class="col-12" style="text-align:center;"><strong>BubbleSort</strong></h1>
+
+    <div class="jumbotron text-center row" style="background-color:wheat;">
+      <div>
+        <h3>Input</h3>
+        <form id="stringForm" action="/sk/bubblesort" method="POST" style="width:500px">
+          <textarea name="string" class="input" id="string" type="integer" style="height:71px; overflow:hidden; resize:none" onkeyup="success()" placeholder="Enter a list of integers"></textarea>
+          <select id="select" name="select" required>
+            <option value="integer">Integer</option>
+          </select>
+          <button type="submit" id="button" style="background-color:peachpuff;">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h3>Output</h3>
+        <table class="mx-auto">
+          <tr>
+            <th class="row">Inputted List</th>
+          </tr>
+          <tr>
+            <td>{{input_list}}</td>
+          </tr>
+          <tr>
+            <th class="row">Sorted List</th>
+          </tr>
+          <tr>
+            <td>{{sorted_list}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+</html>
