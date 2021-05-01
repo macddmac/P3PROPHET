@@ -1,11 +1,52 @@
-{% extends "base.html" %}
-{% block header %}
-<div id="hero-header">
-    <div class="hero-text">
-        <h1 style="stripe-1">MINI LABS:
-        mini-labs are stored on intellij</h1>
+<!DOCTYPE html>
+{% extends "base2.html" %}
+<html lang="en">
+{% block content %}
+<script>
+    function success() {
+        if(document.getElementById("textsend").value==="") {
+            document.getElementById('button').disabled = true;
+        } else {
+            document.getElementById('button').disabled = false;
+        }
+    }
+</script>
+<div class="container">
+
+    <div class="center-block">
+        <h1 class="col-12" style="text-align:center;"><strong>BubbleSort</strong></h1>
+
+        <div class="jumbotron text-center row" style="background-color:wheat;">
+            <div>
+                <h3>Input</h3>
+                <form id="stringForm" action="/cr/bubble" method="POST" style="width:500px">
+                    <textarea name="string" class="input" id="string" type="string,integer" style="height:71px; overflow:hidden; resize:none" onkeyup="success()" placeholder="Enter your an integer(1 2 5 2 6) or string(A H S R W)..."></textarea>
+                    <select id="select" name="select" required>
+                        <option value="string">String</option>
+                        <option value="integer">Integer</option>
+                    </select>
+                    <button type="submit" id="button" style="background-color:peachpuff;">Submit</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h3>Output</h3>
+                <table class="mx-auto">
+                    <tr>
+                        <th class="row">Inputted List</th>
+                    </tr>
+                    <tr>
+                        <td>{{input_list}}</td>
+                    </tr>
+                    <tr>
+                        <th class="row">Sorted List</th>
+                    </tr>
+                    <tr>
+                        <td>{{sorted_list}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-
-
 {% endblock %}
+</html>

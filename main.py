@@ -138,12 +138,12 @@ def bubblesort_route():
 def coupon():
     return render_template("coupon.html")
 
-@app.route('/contactnumber')
+@app.route('/cats')
 @login_required
-def contactnumber():
+def cats():
     text = "https://cat-fact.herokuapp.com/facts/random"
     data = requests.get(text).json()["text"]
-    return render_template("contactnumber.html", data=data)
+    return render_template("cats.html", data=data)
 
 @app.route('/logout')
 @login_required
@@ -155,7 +155,7 @@ def logout():
 def customer():
     if request.method == "POST":
         if request.form.get("response") == "1":
-            return render_template("contactnumber.html")
+            return render_template("cats.html")
         elif request.form.get("response") == "2":
             return render_template("math.html")
         elif request.form.get("response") == "3":
