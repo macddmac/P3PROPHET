@@ -129,6 +129,10 @@ def testimonial_route():
 def minilabs_route():
     return render_template("minilabs.html")
 
+@app.route('/bubblesort')
+def bubblesort_route():
+    return render_template("bubblesorts.html")
+
 @app.route('/coupon')
 @login_required
 def coupon():
