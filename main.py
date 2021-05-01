@@ -14,15 +14,12 @@ import os
 import requests as r
 import json as j
 import time
-
 from urllib.request import Request, urlopen
 
 
-
-from shekarminilab import shekarminilab_bp
+from shekarminilab import sk
 app = Flask(__name__)
-app.register_blueprint(shekarminilab_bp, url_prefix='/shekarminilab')
-
+app.register_blueprint(sk)
 
 
 
@@ -119,6 +116,10 @@ def index_route():
 @app.route('/math')
 def math_route():
     return render_template("math.html")
+
+@app.route('/shekarminilab')
+def shekarminilab_route():
+    return render_template("shekarminilab.html")
 
 @app.route('/testimonial')
 def testimonial_route():

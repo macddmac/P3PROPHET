@@ -1,52 +1,40 @@
 <!DOCTYPE html>
-{% extends "base2.html" %}
 <html lang="en">
-{% block content %}
-<script>
-    function success() {
-        if(document.getElementById("textsend").value==="") {
-            document.getElementById('button').disabled = true;
-        } else {
-            document.getElementById('button').disabled = false;
-        }
-    }
-</script>
-<div class="container">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Lab</title>
+</head>
+<body>
+<div class="jumbotron text-center row">
+    <div>
+        <h3>How many leg excersises do you want to do?</h3>
+        <form id="fibForm" action="" method="POST" >
+            <input name="series" id="series" type="number" min="1" max="13" >
+            <button class="btn  my-2 my-sm-0 text-white bg-danger" type="submit"> Get Excersises</button>
 
-    <div class="center-block">
-        <h1 class="col-12" style="text-align:center;"><strong>BubbleSort</strong></h1>
-
-        <div class="jumbotron text-center row" style="background-color:wheat;">
-            <div>
-                <h3>Input</h3>
-                <form id="stringForm" action="/cr/bubble" method="POST" style="width:500px">
-                    <textarea name="string" class="input" id="string" type="string,integer" style="height:71px; overflow:hidden; resize:none" onkeyup="success()" placeholder="Enter your an integer(1 2 5 2 6) or string(A H S R W)..."></textarea>
-                    <select id="select" name="select" required>
-                        <option value="string">String</option>
-                        <option value="integer">Integer</option>
-                    </select>
-                    <button type="submit" id="button" style="background-color:peachpuff;">Submit</button>
-                </form>
-            </div>
-            <div class="col-md-6">
-                <h3>Output</h3>
-                <table class="mx-auto">
-                    <tr>
-                        <th class="row">Inputted List</th>
-                    </tr>
-                    <tr>
-                        <td>{{input_list}}</td>
-                    </tr>
-                    <tr>
-                        <th class="row">Sorted List</th>
-                    </tr>
-                    <tr>
-                        <td>{{sorted_list}}</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+        </form>
     </div>
+
+    <div id="myDiv" class="col-md-6">
+        <h3>Here are {{bs.sarr}} Leg Excersises:</h3>
+
+        <div id='prova' style='display:none'>{{bs.sarr}}</div>
+
+        <script>
+                window.onload = function () {
+                    setTimeout(appeardiv,2000);
+                }
+                function appeardiv() {
+                    document.getElementById('prova').style.display= "block";
+                }
+            </script>
+
+
+    </div>
+
+
 </div>
-{% endblock %}
+</div>
+</div>
+</body>
 </html>
