@@ -14,6 +14,7 @@ class Bubblesort:
             for f in range(0, n-i-1):
                 if self._sarr[f] > self._sarr[f+1] :
                     self._sarr[f], self._sarr[f+1] = self._sarr[f+1], self._sarr[f]
+
     @property
     def sarr(self):
         return self._sarr
@@ -28,4 +29,3 @@ if __name__ == "__main__":
     bs = Bubblesort(arrinput)
     print("Unsorted array is:", bs.oarr )
     print("Sorted array is:", bs.sarr)
-
