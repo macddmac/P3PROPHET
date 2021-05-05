@@ -119,6 +119,10 @@ def index_route():
 def math_route():
     return render_template("math.html")
 
+@app.route('/bubblesort')
+def bubblesort_route():
+    return render_template("bubblesorts.html")
+
 @app.route('/shekarminilab', methods=["GET", "POST"])
 def shekarminilab_route():
     if request.form:
