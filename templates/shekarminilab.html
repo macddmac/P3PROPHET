@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 <html lang="en">
 {% block content %}
-<script>
+<!--<script>
     function success() {
         if(document.getElementById("textsend").value==="") {
             document.getElementById('button').disabled = true;
@@ -11,33 +11,31 @@
         }
     }
 </script>
+-->
 <div class="container">
 
   <div class="center-block">
-    <h1 class="col-12" style="text-align:center;"><strong>BubbleSort</strong></h1>
+    <h1 class="col-12" style="text-align:center; color:white;"><strong>BubbleSort</strong></h1>
 
-    <div class="jumbotron text-center row" style="background-color:wheat;">
+    <div class="jumbotron text-center row" style="background-color:mediumseagreen;">
       <div>
         <h3>Input</h3>
-        <form id="stringForm" action="/sk/bubblesort" method="POST" style="width:500px">
+        <form id="stringForm" action="/shekarminilab" method="post" style="width:500px">
           <textarea name="string" class="input" id="string" type="integer" style="height:71px; overflow:hidden; resize:none" onkeyup="success()" placeholder="Enter a list of integers"></textarea>
-          <select id="select" name="select" required>
-            <option value="integer">Integer</option>
-          </select>
+
           <button type="submit" id="button" style="background-color:peachpuff;">Submit</button>
         </form>
       </div>
       <div class="col-md-6">
-        <h3>Output</h3>
         <table class="mx-auto">
           <tr>
-            <th class="row">Inputted List</th>
+            <th class="row" style="color:blue">Unsorted List:</th>
           </tr>
           <tr>
             <td>{{input_list}}</td>
           </tr>
           <tr>
-            <th class="row">Sorted List</th>
+            <th class="row" style="color:blue">Sorted List:</th>
           </tr>
           <tr>
             <td>{{sorted_list}}</td>
@@ -47,5 +45,12 @@
     </div>
   </div>
 </div>
+<script>
+  var submitButton = document.getElementById("button");
+
+  submitButton.addEventListener("click", function(){
+    console.log('clicked')
+  }, false);
+</script>
 {% endblock %}
 </html>

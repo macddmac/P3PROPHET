@@ -11,15 +11,16 @@ from werkzeug.urls import url_parse
 import sqlalchemy
 import requests
 import os
+from shekarbubblesort import Bubblesort
 import requests as r
 import json as j
 import time
 from urllib.request import Request, urlopen
 
 
-from shekarminilab import sk
+#from shekarminilab import sk
 app = Flask(__name__)
-app.register_blueprint(sk)
+#app.register_blueprint(sk)
 
 
 
@@ -117,8 +118,20 @@ def index_route():
 def math_route():
     return render_template("math.html")
 
-@app.route('/shekarminilab')
+@app.route('/shekarminilab', methods=["GET", "POST"])
 def shekarminilab_route():
+    if request.form:
+        all_list = []
+        print("hello i am shekar")
+        integer = request.form.get("string")
+        arr = integer.split()
+        for j in range (0,len(arr)):
+            #converting all list into integers
+            arr[j] = int(arr[j])
+
+        bs = Bubblesort(integer)
+
+        return render_template("shekarminilab.html", sorted_list=bs.sarr, input_list=arr)
     return render_template("shekarminilab.html")
 
 @app.route('/testimonial')
@@ -130,9 +143,6 @@ def testimonial_route():
 def minilabs_route():
     return render_template("minilabs.html")
 
-@app.route('/bubblesort')
-def bubblesort_route():
-    return render_template("bubblesorts.html")
 
 @app.route('/coupon')
 @login_required
