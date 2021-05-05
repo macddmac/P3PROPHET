@@ -2,6 +2,7 @@ from flask import Flask, flash, jsonify, redirect, url_for, render_template, Res
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
 from flask_wtf import FlaskForm
+from rohanbs import RohanBubbleSort1
 from wtforms import StringField, PasswordField, BooleanField, SubmitField , IntegerField
 from wtforms.validators import DataRequired, Email, EqualTo
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user
@@ -241,7 +242,21 @@ def newuser(newuser):
     return f"<h1>{newuser}</h1>"
 # Create a sign up page
 
+@app.route('/rohanbubsort', methods=["GET", "POST"])
+def rohanbubblesort():
+    if request.form:
+        all_list = []
+
+        all_list.append(int(request.form.get('number1')))
+        all_list.append(int(request.form.get('number2')))
+        all_list.append(int(request.form.get('number3')))
+        return render_template("rohanbubsort.html", testing=RohanBubbleSort1(all_list))
+
+    return render_template("rohanbubsort.html")
+
 if __name__ == "__main__":
     db.create_all()
     # runs the application on the repl development server
     app.run(debug=True)
+
+
