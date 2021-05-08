@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+{% block content %}
+<!--<script>
+    function success() {
+        if(document.getElementById("textsend").value==="") {
+            document.getElementById('button').disabled = true;
+        } else {
+            document.getElementById('button').disabled = false;
+        }
+    }
+</script>
+-->
+<div style="white">
+<div class="container">
+
+    <div class="center-block">
+        <h1 class="col-12" style="text-align:center; color:lightgray;"><strong>BubbleSort</strong></h1>
+
+        <div class="jumbotron text-center row" style="background-color:slateblue;">
+            <div>
+                <h3>Input</h3>
+                <form id="stringForm" action="/sambubblesort" method="post" style="width:500px">
+                    <textarea name="string" class="input" id="string" type="integer" style="height:71px; overflow:hidden; resize:none" onkeyup="success()" placeholder="Enter as many numbers as you want"></textarea>
+
+                    <button type="submit" id="button" style="background-color:peachpuff;">Submit</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <table class="mx-auto">
+                    <tr>
+
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr>
+                        <th class="row" style="color:tomato">Sorted List:</th>
+                    </tr>
+                    <tr>
+                        <td>{{sorted_list}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+  var submitButton = document.getElementById("button");
+
+  submitButton.addEventListener("click", function(){
+    console.log('clicked')
+  }, false);
+</script>
+{% endblock %}
+</html>

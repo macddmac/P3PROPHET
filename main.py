@@ -13,6 +13,7 @@ import sqlalchemy
 import requests
 import os
 from shekarbubblesort import Bubblesort
+from sambubble import Numbersort
 import requests as r
 import json as j
 import time
@@ -138,6 +139,22 @@ def shekarminilab_route():
 
         return render_template("shekarminilab.html", sorted_list=bs.sarr, input_list=arr)
     return render_template("shekarminilab.html")
+
+@app.route('/sambubblesort', methods=["GET", "POST"])
+def sambubblesort_route():
+    if request.form:
+        all_list = []
+        print("hello i am sam")
+        integer = request.form.get("string")
+        arr = integer.split()
+        for j in range (0,len(arr)):
+            #converting all list into integers
+            arr[j] = int(arr[j])
+
+        bs = Numbersort(integer)
+
+        return render_template("sambubblesort.html", sorted_list=bs.szeto)
+    return render_template("sambubblesort.html")
 
 @app.route('/testimonial')
 def testimonial_route():
