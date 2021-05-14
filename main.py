@@ -161,6 +161,10 @@ def testimonial_route():
     return render_template("testmonial.html")
 # connects /hello path of server to render hello.html
 
+@app.route('/freepage')
+def free_page():
+    return render_template("freepage.html")
+
 @app.route('/minilabs')
 def minilabs_route():
     return render_template("minilabs.html")
