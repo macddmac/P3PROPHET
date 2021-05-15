@@ -117,6 +117,7 @@ def index_route():
     return render_template("index.html")
 
 @app.route('/math')
+@login_required
 def math_route():
     return render_template("math.html")
 
