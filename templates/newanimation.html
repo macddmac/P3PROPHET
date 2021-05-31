@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block header %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="slider" id="main-slider"><!-- outermost container element -->
+  <div class="slider-wrapper"><!-- innermost wrapper element -->
+    <img src="https://cdn.mos.cms.futurecdn.net/YB6aQqKZBVjtt3PuDSkJKe.jpg" alt="First" class="slide" /><!-- slides -->
+    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/1675A/production/_113249919_hi061718491.jpg" alt="Second" class="slide" />
+    <img src="https://i.natgeofe.com/n/6490d605-b11a-4919-963e-f1e6f3c0d4b6/sumatran-tiger-thumbnail-nationalgeographic_1456276.jpg" alt="Third" class="slide" />
+    <img src="https://scx2.b-cdn.net/gfx/news/2019/thesundarban.jpg" alt="Fourth" class="slide" />
+    <img src="https://www.rd.com/wp-content/uploads/2019/07/Close-up-profile-portrait-of-one-Indochinese-tiger-yawning-or-roaring-mouth-wide-open-and-showing-teeth-low-angle-view-scaled.jpg" alt="Fifth" class="slide" />
+    <img src="https://nationalzoo.si.edu/sites/default/files/newsroom/20190226-bridgetisrael08.jpg" alt="Sixth" class="slide" />
+    <img src="https://www.sdzsafaripark.org/sites/default/files/teaser_image/thumb-cam-tiger.jpg" alt="Seventh" class="slide" />
+    <img src="https://theknow.denverpost.com/wp-content/uploads/2020/04/TDP-L-TIGER-KING__HHR5641.jpg" alt="Eigth" class="slide" />
+    <img src="https://www.fox23.com/resizer/RIdeo27SuFUtu_wtupIkdz-S8yQ=/arc-anglerfish-arc2-prod-cmg/public/P26SFRNX2BEQRNNFGYC7IXBX6M.jpg" alt="Ninth" class="slide" />
+    <img src="https://static.scientificamerican.com/sciam/cache/file/A064B7E6-FFC4-408B-A2461196158CD4C6.jpg" alt="Tenth" class="slide" />
+    <img src="https://media.cbs8.com/assets/KFMB/images/1402a703-ba4c-473e-8e1e-311c21bf0cf8/1402a703-ba4c-473e-8e1e-311c21bf0cf8_1920x1080.jpg" alt="Eleventh" class="slide" />
+    <img src="https://www.wbtv.com/resizer/IwqVvYNg_xU3Vc8Dlx-0UTPd1CU=/1200x900/cloudfront-us-east-1.images.arcpublishing.com/raycom/6S3T53JOWFBGHAVWNJBDWH5MP4.jpg" alt="Twelfth" class="slide" />
+
+  </div>
+</div>
+
+
+<script>
+  (function() {
+
+	function Slideshow( element ) {
+		this.el = document.querySelector( element );
+		this.init();
+	}
+
+	Slideshow.prototype = {
+		init: function() {
+			this.wrapper = this.el.querySelector( ".slider-wrapper" );
+			this.slides = this.el.querySelectorAll( ".slide" );
+			this.previous = this.el.querySelector( ".slider-previous" );
+			this.next = this.el.querySelector( ".slider-next" );
+			this.index = 0;
+			this.total = this.slides.length;
+			this.timer = null;
+
+			this.action();
+			this.stopStart();
+		},
+		_slideTo: function( slide ) {
+			var currentSlide = this.slides[slide];
+			currentSlide.style.opacity = 1;
+
+			for( var i = 0; i < this.slides.length; i++ ) {
+				var slide = this.slides[i];
+				if( slide !== currentSlide ) {
+					slide.style.opacity = 0;
+				}
+			}
+		},
+		action: function() {
+			var self = this;
+			self.timer = setInterval(function() {
+				self.index++;
+				if( self.index == self.slides.length ) {
+					self.index = 0;
+				}
+				self._slideTo( self.index );
+
+			}, 3500);
+		},
+		stopStart: function() {
+			var self = this;
+			self.el.addEventListener( "mouseover", function() {
+				clearInterval( self.timer );
+				self.timer = null;
+
+			}, false);
+			self.el.addEventListener( "mouseout", function() {
+				self.action();
+
+			}, false);
+		}
+
+
+	};
+
+	document.addEventListener( "DOMContentLoaded", function() {
+
+		var slider = new Slideshow( "#main-slider" );
+
+	});
+
+
+})();
+
+</script>
+
+</body>
+
+<style>
+  html,body {
+	margin: 0;
+	padding: 0;
+}
+.slider {
+	width: 1024px;
+	margin: 2em auto;
+
+}
+
+.slider-wrapper {
+	width: 100%;
+	height: 400px;
+	position: relative;
+}
+
+.slide {
+	float: left;
+	position: absolute;
+	width: 80%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 3s linear;
+}
+
+.slider-wrapper > .slide:first-child {
+	opacity: 1;
+}
+</style>
+<p style="color:orange; padding-left: 550px"> transitioning pictures (reload if stuck)</p>
+</html>
+
+{% endblock %}

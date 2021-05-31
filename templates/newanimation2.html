@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<body style="color:orange; background-color:orange">
+<p style="color:orange; position:center; font-size: 50px; margin-left:auto ; margin-right:auto ; padding:100px; padding-left: 500px">TIGER ANIMATIONS</p>
+
+<div>
+  <form method="get" action="/animation"> <button type="submit" style="font-size: 70px; position: center; font-family: 'Brush Script MT', cursive;">Tiger animation 1</button> </form>
+</div>
+<div>
+  <form method="get" action="/newanimation"> <button type="submit" style="font-size: 70px; position: center; font-family: 'Brush Script MT', cursive;">Tiger animation 2</button> </form>
+</div>
+
+
+
+
+
+
+<script>
+  $(document).ready(function () {
+  var scroll_pos = 0;
+  var animation_begin_pos = 0; //animation to begin
+  var animation_end_pos = 1000; //animation to stop
+  var beginning_color = new $.Color("rgb(255,174,31)");
+  var ending_color = new $.Color("rgb(119,127,160)");
+  $(document).scroll(function () {
+    scroll_pos = $(this).scrollTop();
+    if (scroll_pos >= animation_begin_pos && scroll_pos <= animation_end_pos) {
+      //calculate the relevant transitional rgb value
+      var percentScrolled =
+        scroll_pos / (animation_end_pos - animation_begin_pos);
+      var newRed =
+        beginning_color.red() +
+        (ending_color.red() - beginning_color.red()) * percentScrolled;
+      var newGreen =
+        beginning_color.green() +
+        (ending_color.green() - beginning_color.green()) * percentScrolled;
+      var newBlue =
+        beginning_color.blue() +
+        (ending_color.blue() - beginning_color.blue()) * percentScrolled;
+      var newColor = new $.Color(newRed, newGreen, newBlue);
+      $("body").animate({ backgroundColor: newColor }, 0);
+    } else if (scroll_pos > animation_end_pos) {
+      $("body").animate({ backgroundColor: ending_color }, 0);
+    } else if (scroll_pos < animation_begin_pos) {
+      $("body").animate({ backgroundColor: beginning_color }, 0);
+    } else {
+    }
+  });
+});
+
+</script>
+</body>
+
+<style>
+  a {
+  text-decoration: none;
+  color: #fff;
+}
+h1 {
+  font-size: 8em;
+}
+body {
+  background-color: rgb(255, 174, 31);
+  color: #fff;
+}
+
+.center {
+  text-align: center;
+}
+.facts h2,
+.facts h1 {
+  color: #fff;
+  text-align: center;
+  font-family: "Josefin Sans";
+}
+
+.facts p {
+  text-align: center;
+}
+
+.mg-btm {
+  margin-bottom: 75px;
+}
+
+.tiger {
+  height: 570px;
+}
+
+.columns img,
+.column img {
+  height: auto;
+  max-width: 100%;
+}
+
+/*tiger animation*/
+svg#tiger {
+  margin-top: 0px;
+  width: 100%;
+  max-height: 95%;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 456);
+  margin: auto;
+}
+
+svg path {
+  fill-opacity: 0;
+  stroke-width: 1;
+  stroke-dasharray: 3319;
+  stroke-dashoffset: 3319;
+  animation-name: draw;
+  animation-duration: 7s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+svg path.t1 {
+  fill: #c16b46 !important;
+  stroke: #c16b46;
+}
+
+svg path.t2 {
+  fill: #60410f !important;
+  stroke: #60410f;
+}
+
+svg path.t3 {
+  fill: #63561e !important;
+  stroke: #60410f;
+}
+
+svg path.t4 {
+  fill: #544c4c !important;
+  stroke: #544c4c;
+}
+
+svg path.t5 {
+  fill: #e09003 !important;
+  stroke: #e09003;
+}
+
+svg path.t6 {
+  fill: #ffae1f !important;
+  stroke: #ffae1f;
+}
+
+svg path.t7 {
+  fill: #efc075 !important;
+  stroke: #efc075;
+}
+
+svg path.t8 {
+  fill: #f7dc8f !important;
+  stroke: #f7dc8f;
+}
+
+svg path.t9 {
+  fill: #fefff3 !important;
+  stroke: #fefff3;
+}
+
+svg path.t10 {
+  fill: #d3c8c2 !important;
+  stroke: #d3c8c2;
+}
+
+svg path.t11 {
+  fill: #8c7c70 !important;
+  stroke: #8c7c70;
+}
+
+svg path.t12 {
+  fill: #b5ac6d !important;
+  stroke: #b5ac6d;
+}
+
+svg path.t13 {
+  fill: #777fa0 !important;
+  stroke: #777fa0;
+}
+
+svg path.t14 {
+  fill: #afa49f !important;
+  stroke: #afa49f;
+}
+
+svg path.t15 {
+  fill: #ff8d43 !important;
+  stroke: #ff8d43;
+}
+
+svg path.t16 {
+  fill: #c9c0ad !important;
+  stroke: #c9c0ad;
+}
+
+svg path.t17 {
+  fill: #c69849 !important;
+  stroke: #c69849;
+}
+
+svg path.t18 {
+  fill: #e2afa3 !important;
+  stroke: #e2afa3;
+}
+
+svg path.t19 {
+  fill: #ffa748 !important;
+  stroke: #ffa748;
+}
+
+svg path.t20 {
+  fill: #f9b26b !important;
+  stroke: #f9b26b;
+}
+
+svg path.t21 {
+  fill: #c07e48 !important;
+  stroke: #c07e48;
+}
+
+svg path.t22 {
+  fill: #937057 !important;
+  stroke: #937057;
+}
+
+svg path.t23 {
+  fill: #e8e9eb !important;
+  stroke: #e8e9eb;
+}
+
+svg path.t24 {
+  fill: #fef8cb !important;
+  stroke: #fef8cb;
+}
+
+svg path.t25 {
+  fill: #ffd385 !important;
+  stroke: #ffd385;
+}
+
+svg path.t26 {
+  fill: #d69385 !important;
+  stroke: #d69385;
+}
+
+svg path.t27 {
+  fill: #c98777 !important;
+  stroke: #c98777;
+}
+
+svg path.t28 {
+  fill: #ead4b5 !important;
+  stroke: #ead4b5;
+}
+
+svg path.t29 {
+  fill: #eaddce !important;
+  stroke: #eaddce;
+}
+
+svg path.t30 {
+  fill: #c98777 !important;
+  stroke: #c98777;
+}
+svg path.t31 {
+  fill: #48302c !important;
+  stroke: #48302c;
+}
+
+svg path.t32 {
+  fill: #d1c76d !important;
+  stroke: #d1c76d;
+}
+
+svg path.t33 {
+  fill: #84701e !important;
+  stroke: #84701e;
+}
+svg path.t34 {
+  fill: #564602 !important;
+  stroke: #564602;
+}
+
+@keyframes draw {
+  to {
+    fill-opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+</style>
+
+
+{% endblock %}

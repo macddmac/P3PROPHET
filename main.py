@@ -116,6 +116,18 @@ def home_route():
 def index_route():
     return render_template("index.html")
 
+@app.route('/newanimation2')
+def newanimation2_route():
+    return render_template("newanimation2.html")
+
+@app.route('/newanimation')
+def newanimation_route():
+    return render_template("newanimation.html")
+
+@app.route('/animation')
+def animation_route():
+    return render_template("animation.html")
+
 @app.route('/math')
 @login_required
 def math_route():
