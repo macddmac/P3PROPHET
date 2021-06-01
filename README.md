@@ -24,7 +24,8 @@ Our project focues on endagered animal species and shows trends in the statistic
 ---------------------------
 
 # Update Log
-
+## Week 3:
+Rivan- When I was working on it I researched about the top 10 animals and on top of that I implemented this into the website. 
 ## Week 1:
 - Created the database for the signup/login
 - Started on the project board
