@@ -12,17 +12,15 @@ from werkzeug.urls import url_parse
 import sqlalchemy
 import requests
 import os
-from shekarbubblesort import Bubblesort
-from sambubble import Numbersort
 import requests as r
 import json as j
 import time
 from urllib.request import Request, urlopen
 
 
-#from shekarminilab import sk
+from shekarminilab import sk
 app = Flask(__name__)
-#app.register_blueprint(sk)
+app.register_blueprint(sk)
 
 
 
@@ -116,72 +114,26 @@ def home_route():
 def index_route():
     return render_template("index.html")
 
-@app.route('/newanimation2')
-def newanimation2_route():
-    return render_template("newanimation2.html")
-
-@app.route('/newanimation')
-def newanimation_route():
-    return render_template("newanimation.html")
-
-@app.route('/animation')
-def animation_route():
-    return render_template("animation.html")
-
 @app.route('/math')
-@login_required
 def math_route():
     return render_template("math.html")
 
-@app.route('/bubblesort')
-def bubblesort_route():
-    return render_template("bubblesorts.html")
-
-@app.route('/shekarminilab', methods=["GET", "POST"])
+@app.route('/shekarminilab')
 def shekarminilab_route():
-    if request.form:
-        all_list = []
-        print("hello i am shekar")
-        integer = request.form.get("string")
-        arr = integer.split()
-        for j in range (0,len(arr)):
-            #converting all list into integers
-            arr[j] = int(arr[j])
-
-        bs = Bubblesort(integer)
-
-        return render_template("shekarminilab.html", sorted_list=bs.sarr, input_list=arr)
     return render_template("shekarminilab.html")
-
-@app.route('/sambubblesort', methods=["GET", "POST"])
-def sambubblesort_route():
-    if request.form:
-        all_list = []
-        print("hello i am sam")
-        integer = request.form.get("string")
-        arr = integer.split()
-        for j in range (0,len(arr)):
-            #converting all list into integers
-            arr[j] = int(arr[j])
-
-        bs = Numbersort(integer)
-
-        return render_template("sambubblesort.html", sorted_list=bs.szeto)
-    return render_template("sambubblesort.html")
 
 @app.route('/testimonial')
 def testimonial_route():
     return render_template("testmonial.html")
 # connects /hello path of server to render hello.html
 
-@app.route('/freepage')
-def free_page():
-    return render_template("freepage.html")
-
 @app.route('/minilabs')
 def minilabs_route():
     return render_template("minilabs.html")
 
+@app.route('/bubblesort')
+def bubblesort_route():
+    return render_template("bubblesorts.html")
 
 @app.route('/coupon')
 @login_required
@@ -291,12 +243,6 @@ def rohanbubblesort():
         return render_template("rohanbubsort.html", testing=RohanBubbleSort1(all_list))
 
     return render_template("rohanbubsort.html")
-
-@app.route('/', methods=["GET", "POST"])
-def animalqui():
-    if request.form:
-        return render_template("quiz.html", quiz=Quiz((request.form.get("series"))))
-    return render_template("quiz.html", quiz=Quiz(1))
 
 if __name__ == "__main__":
     db.create_all()
