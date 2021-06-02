@@ -10,7 +10,7 @@ Project Board: https://github.com/macddmac/P3PROPHET/projects/1
 Runtime Link: http://10.204.104.100:8080/
 
 # Umbrella Ticket with Individual Tasks 
--[Umbrella Ticket](https://github.com/macddmac/P3PROPHET/issues/17)
+- [Umbrella Ticket](https://github.com/macddmac/P3PROPHET/issues/17)
 - In this Umbrella Ticket you will find each of the contributors' goals for the final project 
 - Currently we have our checkpoints for 6/1 completed and linked as well as our general plans for the future weeks. 
 
