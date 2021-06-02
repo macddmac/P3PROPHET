@@ -9,6 +9,11 @@ Project Board: https://github.com/macddmac/P3PROPHET/projects/1
 
 Runtime Link: http://10.204.104.100:8080/
 
+# Umbrella Ticket with Individual Tasks 
+-[Umbrella Ticket](https://github.com/macddmac/P3PROPHET/issues/17)
+- In this Umbrella Ticket you will find each of the contributors' goals for the final project 
+- Currently we have our checkpoints for 6/1 completed and linked as well as our general plans for the future weeks. 
+
 # Contributors(+ individual ideas)
 - Rohan - Look to set up graphing system to track trends and represent data
 - Sam - RPI owner and works with the back end of the code to create routes 
@@ -22,14 +27,3 @@ Our project focues on endagered animal species and shows trends in the statistic
 # What will the website feature?
 - Certain endangered species and the cause of their endangerment
 ---------------------------
-
-# Update Log
-## Week 3:
- 
-## Week 1:
-- Created the database for the signup/login
-- Started on the project board
-- Made a blueprint for the storing of minilab code
-## Week 0:
-- Set up the template for the website 
-
