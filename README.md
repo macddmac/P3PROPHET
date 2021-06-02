@@ -22,8 +22,14 @@ Runtime Link: http://10.204.104.100:8080/
 - Rivan - Our alternate front end coder who is focusing on analyzing data for endangered species 
 
 # What is our project?
-Our project focues on endagered animal species and shows trends in the statistics related to them!
+Our project focues on endagered animal species and shows trends in the statistics related to them! We also give information through fun activities for kids and adults. People of all ages can navigate and learn about all kinds of animals and hopefully gain insight into how precious they are to our world. 
 
 # What will the website feature?
-- Certain endangered species and the cause of their endangerment
+- Home page with navigation options to our key wesbite highlights
+- Cat API that gives random facts about cats
+- Login system used for new/old users to log in and access our page
+- Cool looking tiger animations
+- About us page that gives credit to everyone that helped build the page
+- Data storage page that gives information about animals not specially featured
+- Minilabs where collaborators can show cool codes that have built
 ---------------------------
