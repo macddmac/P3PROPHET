@@ -12,7 +12,7 @@ Runtime Link: http://animalsoftheworld.cf/
 # Umbrella Ticket with Individual Tasks for EOY
 - [Umbrella Ticket](https://github.com/macddmac/P3PROPHET/issues/17)
 - In this Umbrella Ticket you will find each of the contributors' goals for the final project 
-- Currently we have our checkpoints for 6/1 completed and linked as well as our general plans for the future weeks
+- Currently we have our checkpoints for 6/1 completed and linked as well as our general plans for the next week
 
 # Contributors(+ individual ideas)
 - Rohan - Look to set up graphing system to track trends and represent data
