@@ -292,6 +292,12 @@ def rohanbubblesort():
 
     return render_template("rohanbubsort.html")
 
+@app.route('/', methods=["GET", "POST"])
+def animalqui():
+    if request.form:
+        return render_template("quiz.html", quiz=Quiz((request.form.get("series"))))
+    return render_template("quiz.html", quiz=Quiz(1))
+
 if __name__ == "__main__":
     db.create_all()
     # runs the application on the repl development server
