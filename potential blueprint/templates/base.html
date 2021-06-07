@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<div class="container">
+
+   <div class="center-block" style="margin: 2% 5% 5%; font-family: gilroy,serif;">
+
+       <div class="col-12" style="text-align: center;">
+           <h1><strong>Math series in Python</strong></h1>
+       </div>
+
+       <!-- Below is the form for the user input -->
+       <div class="jumbotron text-center row">
+           <div class="col-md-6">
+               <h3>Type a number and watch it affect the list</h3>
+               <form id="fibForm" action="/" method="POST" >
+                   <input name="series" id="series" type="number" min="2" max="100" >
+                   <button>Enter</button>
+
+               </form>
+           </div>
+
+           <div class="col-md-6">
+               <h3>math series for you</h3>
+               <!-- This is where we display the output of the affected list from the user's input -->
+               <table class="mx-auto">
+                   <tr>
+                       <th scope="col">Series</th>
+                       <th scope="col">Multiplier</th>
+                   </tr>
+                   <tr>
+                       <td>&#129504;</td>
+                       <td>&#129504;</td>
+                   </tr>
+               </table>
+           </div>
+       </div>
+
+   </div>
+
+</div>
+</div>
+<style>
+   table, td, th {
+       border: 1px solid var(--dblue);
+   }
+   td, th {
+       text-align:left;
+   }
+</style>
