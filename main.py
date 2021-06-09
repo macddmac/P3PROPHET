@@ -112,17 +112,16 @@ def animation_route():
 @app.route('/math')
 @login_required
 def math_route():
-
-
-
-
-
-
-
-
-
-
     return render_template("math.html")
+
+@app.route('/math1')
+def math1_route():
+    return render_template("math1.html")
+
+@app.route('/math2')
+def math2_route():
+    return render_template("math2.html")
+
 @app.route('/bubblesort')
 def bubblesort_route():
     return render_template("bubblesorts.html")
