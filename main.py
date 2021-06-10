@@ -265,7 +265,7 @@ if __name__ == "__main__":
 @app.route('/email', methods = ['POST'])
 def email():
     email = request.form['email']
-    email_text = 'Subject: {}\n\n{}'.format("United States Data", 'United States Total Cases 24,983,892; Total Deaths 2,080,972; Current Active Cases 25,361,201 ')
+    email_text = 'Subject: {}\n\n{}'.format("THe gorilla is avery interesting animal: more data to come")
     server = secure_smtplib.SMTP_SSL('smtp.gmail.com', 465)
     server.ehlo()
     server.login('wildcatsp4@gmail.com', 'MrMadman33')

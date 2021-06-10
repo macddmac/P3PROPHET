@@ -9,6 +9,5 @@ app.register_blueprint(second, url_prefix="/admin")
 def test():
    return "<h1>Test1</h1>"
 
-
 if __name__ == "__main__":
    app.run(debug=True)
