@@ -1,0 +1,29 @@
+<html>
+<head>
+<style>
+body {background-color: black;}
+h1 {
+  color: blue;
+  font-family: verdana;
+  font-size: 300%;
+}
+p {
+  color: green;
+  font-family: courier;
+  font-size: 160%;
+}
+</style>
+</head>
+  <body>
+    {% block content %}
+    <div class="container">
+      <form action="#" method="post">
+        <h1>Enter a list of numbers with spaces</h1><br />
+        <p>The purpose of this is to sort your list of numbers</p>
+        <input type="text" name="ints" />
+        <input type="submit" value="submit" />
+      </form>
+    </div>
+    {% endblock %}
+  </body>
+</html>
