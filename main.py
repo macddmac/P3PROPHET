@@ -2,6 +2,7 @@ from flask import Flask, flash, jsonify, redirect, url_for, render_template, Res
 from flask_sqlalchemy import SQLAlchemy
 from flask import render_template, request, Flask
 from mathcalc import Math
+from flask import Flask, redirect, url_for, render_template, request
 from sqlalchemy.sql import text
 from flask_wtf import FlaskForm
 from rohanbs import RohanBubbleSort1
@@ -265,6 +266,31 @@ def listclass():
     if request.form:
         return render_template("G.html", G=Math(int(request.form.get("series"))))
     return render_template("G.html", G=Math(1))
+
+def bubble(inst):
+    indexing_length = len(inst) - 1
+    sorted = False
+    while not sorted:
+        sorted = True
+        for i in range(0, indexing_length):
+            if inst[i] > inst[i+1]:
+                sorted = False
+                inst[i], inst[i+1] = inst[i+1], inst[i]
+    return inst
+
+@app.route('/bubbb', methods=["GET", "POST"])
+def home():
+    if request.method == "POST":
+        numbs = request.form['ints']
+        integers = list(numbs.split())
+        bubble(integers)
+        return redirect(url_for("integers", ints=integers))
+    return render_template("form.html")
+
+
+@app.route("/<ints>")
+def integers(ints):
+    return f"<p>{ints}</p>"
 
 if __name__ == "__main__":
     db.create_all()
