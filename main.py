@@ -1,5 +1,7 @@
 from flask import Flask, flash, jsonify, redirect, url_for, render_template, Response, request, session, current_app, g
 from flask_sqlalchemy import SQLAlchemy
+from flask import render_template, request, Flask
+from mathcalc import Math
 from sqlalchemy.sql import text
 from flask_wtf import FlaskForm
 from rohanbs import RohanBubbleSort1
@@ -257,6 +259,13 @@ def rohanbubblesort():
         all_list.append(int(request.form.get('number3')))
         return render_template("rohanbubsort.html", testing=RohanBubbleSort1(all_list))
     return render_template("rohanbubsort.html")
+
+@app.route('/hi', methods=["GET", "POST"])
+def listclass():
+    if request.form:
+        return render_template("G.html", G=Math(int(request.form.get("series"))))
+    return render_template("G.html", G=Math(1))
+
 if __name__ == "__main__":
     db.create_all()
     # runs the application on the repl development server
