@@ -14,7 +14,6 @@ import requests
 import os
 from shekarbubblesort import Bubblesort
 from sambubble import Numbersort
-import secure_smtplib
 import requests as r
 import json as j
 import time
@@ -262,14 +261,4 @@ if __name__ == "__main__":
     db.create_all()
     # runs the application on the repl development server
     app.run(debug=True)
-@app.route('/email', methods = ['POST'])
-def email():
-    email = request.form['email']
-    email_text = 'Subject: {}\n\n{}'.format("THe gorilla is avery interesting animal: more data to come")
-    server = secure_smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    server.ehlo()
-    server.login('wildcatsp4@gmail.com', 'MrMadman33')
-    server.sendmail('wildcatsp4@gmail.com', email, email_text)
-    server.close()
-    print ("email sent to:", email)
-    return render_template("home.html")
+
