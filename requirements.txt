@@ -4,14 +4,12 @@ pytz==2020.5
 sqlparse==0.4.1
 python-dateutil==2.8.1
 flask~=1.1.2
-requests~=2.25.1
 SQLAlchemy~=1.3.20
 flask_sqlalchemy
 flask_table
 gunicorn
 flask
 flask_sqlalchemy
-requests
 flask-login
 flask-wtf
 wtforms[email]
