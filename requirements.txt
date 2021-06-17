@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 asgiref==3.3.1
 Django==3.1.5
 pytz==2020.5
@@ -11,11 +10,9 @@ flask_sqlalchemy
 flask_table
 gunicorn
 requests~=2.25.0
-=======
 flask
 flask_sqlalchemy
 requests
 flask-login
 flask-wtf
 wtforms[email]
->>>>>>> 5821c4c86ff2e5f2f509b75a61b0c71df4559686
