@@ -2,6 +2,23 @@
 # ![banner](https://user-images.githubusercontent.com/72889343/112936650-0e794c00-90db-11eb-8ca9-f9dc3afd2ebf.JPG)
 This is the repository for team "PROPHETS" in Mr. Mortensens Period 3 Data Structures class.
 
+# How It's Made
+## Theme Section (5pt)
+- Our theme is about Animals! Explore our website and you will find countless ways to learn and have fun with animals :D
+![image](https://user-images.githubusercontent.com/72889343/122511985-04216c80-cfbd-11eb-896e-85a28121c202.png)
+![image](https://user-images.githubusercontent.com/72889343/122512135-43e85400-cfbd-11eb-92cd-a65513b41354.png)
+![image](https://user-images.githubusercontent.com/72889343/122512382-9de91980-cfbd-11eb-92a4-f5ce82b380e6.png)
+
+## Individual Section (3pt)
+
+## API Section (3pt)
+
+## Deployment Section (3pt)
+- How It's Made section (+2pt How Its Made, +1pt Visuals)
+    - This is our 'How it's Made'
+- Commercial (+2pt)
+    - [LINK TO VIDEO](https://www.youtube.com/watch?v=wpCmiDVF604)
+
 # Links
 Project Plan: https://docs.google.com/document/d/1KWPlPDd_6blTJ15MXSY9-g9YZ7K22wgo52YYNsyNvW8/edit
 
