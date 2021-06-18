@@ -97,7 +97,7 @@ if __name__ == "__main__":
 - How It's Made section (+2pt How Its Made, +1pt Visuals)
     - This is our 'How it's Made'
 - Commercial (+2pt)
-    - [LINK TO VIDEO]()
+    - [LINK TO VIDEO](https://youtu.be/wpunaUXwuGU)
 - Failed to Deploy on Mr. M's Machine(-1pt)
 
 # Links
